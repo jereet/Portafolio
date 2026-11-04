@@ -28,7 +28,7 @@ export function Hero({ links }: HeroProps) {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("jeremias.contacto.dev@gmail.com");
+    navigator.clipboard.writeText("jereet31@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -55,9 +55,9 @@ export function Hero({ links }: HeroProps) {
             {/* Title & Identity */}
             <div className="space-y-3">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-                Jeremías{" "}
+                Jeremías Toranzo{" "}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">
-                  Fullstack & Informática
+                  Estudiante Avanzado de Computación
                 </span>
               </h1>
               <p className="text-xl sm:text-2xl text-zinc-300 font-light max-w-2xl leading-snug">
@@ -122,7 +122,7 @@ export function Hero({ links }: HeroProps) {
                   <GithubIcon className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/jereet"
+                  href="https://linkedin.com/in/jeremias-toranzo-4422901b1"
                   target="_blank"
                   rel="noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-emerald-400 hover:border-emerald-500/40 transition-colors"
@@ -177,7 +177,7 @@ export function Hero({ links }: HeroProps) {
                 <div className="pl-4 space-y-1.5">
                   <div>
                     <span className="text-zinc-400">nombre:</span>{" "}
-                    <span className="text-emerald-300">&quot;Jeremías&quot;</span>,
+                    <span className="text-emerald-300">&quot;Jeremías Toranzo&quot;</span>,
                   </div>
                   <div>
                     <span className="text-zinc-400">carrera:</span>{" "}

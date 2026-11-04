@@ -4,38 +4,38 @@
       "id": "proj-1",
       "slug": "mixrush-juego-de-mesa-digital",
       "title": "MixRush",
-      "subtitle": "Juego de Mesa Digital",
-      "description": "Juego de mesa digitalizado para jugar en grupo, con dinámicas de tablero, turnos, preguntas y desafíos interactivos en tiempo real.",
-      "longDescription": "MixRush traslada la experiencia de los juegos de mesa tradicionales a una aplicación web dinámica. Permite a múltiples jugadores participar de partidas con control de turnos, rondas interactivas, desafíos de preguntas y diseño adaptado tanto a pantallas compartidas como a dispositivos móviles.",
+      "subtitle": "Juego de mesa digital",
+      "description": "Desarrollo de aplicación web interactiva con 7 minijuegos, gestión de turnos, jugadores y persistencia de partidas.",
+      "longDescription": "Desarrollo de una aplicación web interactiva que digitaliza la dinámica de juegos de mesa grupales. Cuenta con 7 minijuegos integrados, sistema de control de turnos entre participantes, registro de jugadores y persistencia de partidas para retomar el juego en cualquier momento.",
       "category": "Real-time",
-      "tags": ["React", "TypeScript", "Tailwind CSS", "Node.js", "WebSockets"],
-      "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js", "Framer Motion"],
+      "tags": ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      "technologies": ["React", "TypeScript", "Vite", "Tailwind CSS"],
       "featured": true,
       "githubUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
       "liveUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
-      "role": "Desarrollador Full Stack",
+      "role": "Desarrollador Web",
       "timeline": "2024",
       "architecture": [
-        "Control del flujo de la partida y secuencia estricta de turnos.",
-        "Componentes reutilizables para casillas, cartas y dados interactivos.",
-        "Interfaz adaptable a navegadores de escritorio y celulares.",
-        "Manejo del estado de la partida y eventos de jugadores."
+        "Estructura desacoplada para gestión de estados de los 7 minijuegos.",
+        "Componentes reutilizables para el tablero, dados y tarjetas dinámicas.",
+        "Persistencia local del progreso y puntajes de la partida.",
+        "Diseño responsivo optimizado para tablets, móviles y monitores."
       ],
       "challenges": [
         {
-          "title": "Control de turnos y sincronización de acciones",
-          "solution": "Validación de eventos en orden de jugada para evitar saltos de turno involuntarios entre jugadores."
+          "title": "Manejo de estados y flujo secuencial de 7 minijuegos",
+          "solution": "Diseño de un controlador central de turnos que gestiona las transiciones entre minijuegos sin reiniciar el estado general de los jugadores."
         },
         {
-          "title": "Diseño adaptable a distintas pantallas",
-          "solution": "Uso de CSS Grid y diseño responsivo para que el tablero y los controles se vean claros tanto en monitores como en teléfonos."
+          "title": "Persistencia confiable del estado de la partida",
+          "solution": "Mecanismo de guardado reactivo para evitar la pérdida de turnos o puntajes ante recargas inesperadas del navegador."
         }
       ],
       "features": [
-        "Salas para unirse mediante código de partida.",
-        "Tablero interactivo con casillas especiales y preguntas.",
-        "Temporizador por ronda y conteo de puntos automático.",
-        "Podio final con los resultados de la partida."
+        "7 minijuegos variados con mecánicas interactivas.",
+        "Control de turnos y selección de jugadores.",
+        "Persistencia de partidas en curso.",
+        "Tablero visual fluido con Tailwind CSS."
       ],
       "image": "/projects/mixrush.webp",
       "order": 1
@@ -44,38 +44,38 @@
       "id": "proj-2",
       "slug": "countries-explorer",
       "title": "Countries Explorer",
-      "subtitle": "Explorador de Países del Mundo",
-      "description": "Aplicación web para buscar, explorar y filtrar información detallada de países de todo el mundo mediante el consumo de una API REST.",
-      "longDescription": "Countries Explorer permite conocer datos demográficos, geográficos y culturales de países a nivel global. Cuenta con buscador en tiempo real, filtros por región geográfica, vista detallada por país con países limítrofes vinculados e interfaz con modo oscuro.",
+      "subtitle": "Explorador y comparador de países",
+      "description": "Aplicación de escritorio para consultar información de países, visualizar el clima de sus capitales y comparar estadísticas mediante APIs externas.",
+      "longDescription": "Aplicación desarrollada en Kotlin y Compose Multiplatform para explorar información geográfica de países de todo el mundo. Permite consultar datos demográficos, visualizar en tiempo real el clima de las capitales y realizar comparaciones estadísticas entre naciones a través del consumo de APIs externas.",
       "category": "Frontend",
-      "tags": ["React", "TypeScript", "Tailwind CSS", "REST API"],
-      "technologies": ["React", "TypeScript", "REST Countries API", "Tailwind CSS"],
+      "tags": ["Kotlin", "Compose Multiplatform", "Ktor", "DataStore", "MVVM"],
+      "technologies": ["Kotlin", "Compose Multiplatform", "Ktor", "DataStore", "MVVM Architecture"],
       "featured": true,
       "githubUrl": "https://github.com/jereet/Countries-Explorer",
       "liveUrl": "https://github.com/jereet/Countries-Explorer",
-      "role": "Desarrollador Frontend",
+      "role": "Desarrollador Desktop & Multiplatform",
       "timeline": "2024",
       "architecture": [
-        "Consumo y normalización de datos desde la REST Countries API.",
-        "Módulo de filtrado y búsqueda optimizado en el cliente.",
-        "Rutas dinámicas para las páginas de detalle de cada país.",
-        "Soporte de cambio de tema claro / oscuro."
+        "Patrón de arquitectura MVVM con separación estricta de UI y lógica.",
+        "Cliente HTTP asincrónico implementado con Ktor y corrutinas.",
+        "Persistencia local de configuraciones con DataStore.",
+        "Interfaz declarativa multiplataforma con Compose Multiplatform."
       ],
       "challenges": [
         {
-          "title": "Búsqueda ágil sobre el listado de países",
-          "solution": "Filtrado en memoria con debounce para actualizar los resultados de forma fluida a medida que el usuario escribe."
+          "title": "Integración y consumo simultáneo de múltiples APIs externas",
+          "solution": "Uso de corrutinas de Kotlin y Ktor para realizar peticiones concurrentes (datos del país + clima de la capital) de forma fluida y sin bloquear la UI."
         },
         {
-          "title": "Vinculación con países limítrofes",
-          "solution": "Resolución de los códigos de fronteras para permitir navegar directamente al país vecino con un click."
+          "title": "Comparativa dinámica de estadísticas entre dos territorios",
+          "solution": "Modelado unificado de métricas para contrastar población, superficie y condiciones climáticas con visualización interactiva."
         }
       ],
       "features": [
-        "Búsqueda por nombre de país y filtrado por región/continente.",
-        "Detalle con bandera, capital, población, monedas e idiomas.",
-        "Navegación interactiva hacia los países limítrofes.",
-        "Diseño responsive adaptado a cualquier dispositivo."
+        "Búsqueda y consulta de información de países a nivel global.",
+        "Visualización en tiempo real del clima de las capitales.",
+        "Comparador estadístico entre múltiples naciones.",
+        "Almacenamiento de preferencias con DataStore."
       ],
       "image": "/projects/countries.webp",
       "order": 2
@@ -83,39 +83,39 @@
     {
       "id": "proj-3",
       "slug": "qr-party-50th",
-      "title": "QR Party 50th",
-      "subtitle": "Interacción para Eventos y Celebraciones",
-      "description": "Plataforma web con códigos QR para que los invitados de un evento compartan fotos y mensajes en vivo en la pantalla del salón.",
-      "longDescription": "Creada para un evento de 50 aniversario, permite a los invitados escanear un código QR desde sus mesas, subir fotos y dejar mensajes desde el celular sin necesidad de instalar apps, proyectándolos en la pantalla principal durante la fiesta.",
+      "title": "QR Party",
+      "subtitle": "Sitio web interactivo para eventos",
+      "description": "Desarrollo de sitio web responsive accesible mediante código QR, con menú interactivo de tragos, galería de recuerdos y secciones personalizadas para eventos.",
+      "longDescription": "Sitio web interactivo diseñado para celebraciones y eventos. Los asistentes acceden escaneando un código QR desde sus mesas para interactuar con un menú interactivo de tragos, subir fotos a la galería de recuerdos colectiva y explorar las secciones personalizadas del festejo.",
       "category": "Full Stack",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Cloud Storage"],
-      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Cloud Storage", "Framer Motion"],
+      "tags": ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+      "technologies": ["HTML5", "CSS3", "JavaScript"],
       "featured": true,
       "githubUrl": "https://github.com/jereet/QR_Party_50th",
       "liveUrl": "https://github.com/jereet/QR_Party_50th",
-      "role": "Desarrollador Full Stack",
+      "role": "Desarrollador Web",
       "timeline": "2024",
       "architecture": [
-        "Generación y lectura de códigos QR por mesa e invitado.",
-        "Formulario de subida de fotos y dedicatorias accesible desde móviles.",
-        "Muro en vivo con modo presentación para proyectores y pantallas.",
-        "Almacenamiento seguro de archivos multimedia."
+        "Sitio web responsive ligero y accesible desde cualquier smartphone sin apps.",
+        "Menú digital interactivo con buscador y filtros de tragos y bebidas.",
+        "Galería de recuerdos colaborativa para invitados.",
+        "Generación e integración de códigos QR para mesas."
       ],
       "challenges": [
         {
-          "title": "Subida de fotos pesadas desde teléfonos en el evento",
-          "solution": "Optimización y compresión de las imágenes antes del envío para agilizar la carga incluso con conectividad limitada."
+          "title": "Acceso veloz y liviano con conectividad móvil",
+          "solution": "Estructura en HTML5 y CSS3 optimizada para una carga instantánea al escanear el QR, con consumo mínimo de datos móviles."
         },
         {
-          "title": "Visualización continua en proyector",
-          "solution": "Carrusel automático con transiciones limpias y actualización periódica con los nuevos recuerdos enviados."
+          "title": "Experiencia táctil intuitiva para todo tipo de público",
+          "solution": "Diseño de interfaz con botones grandes, navegación clara y menú de tragos filtrable fácilmente con una sola mano."
         }
       ],
       "features": [
-        "Acceso directo escaneando el código QR de cada mesa.",
-        "Subida de fotos y dedicatorias desde el navegador móvil.",
-        "Pantalla en modo carrusel para proyectar durante la celebración.",
-        "Galería completa de recuerdos guardada para los organizadores."
+        "Acceso directo mediante escaneo de código QR.",
+        "Menú interactivo de bebidas y coctelería con detalle de ingredientes.",
+        "Galería de recuerdos compartida.",
+        "Secciones personalizadas y cronograma del evento."
       ],
       "image": "/projects/qrparty.webp",
       "order": 3
@@ -123,39 +123,39 @@
     {
       "id": "proj-4",
       "slug": "buscador-mongodb",
-      "title": "Buscador MongoDB",
-      "subtitle": "Buscador y Consultas en MongoDB",
-      "description": "Aplicación para realizar búsquedas avanzadas, filtros combinados y agregaciones optimizadas sobre colecciones de MongoDB.",
-      "longDescription": "Proyecto enfocado en la interacción y optimización de consultas sobre bases de datos NoSQL con MongoDB. Implementa índices de texto, filtros facetados y pipelines de agregación para consultar colecciones de forma clara y eficiente.",
+      "title": "MongoDB Movie Search",
+      "subtitle": "Buscador de películas",
+      "description": "Desarrollo de aplicación web de búsqueda de películas, con consultas optimizadas, ordenamiento por relevancia y visualización de resultados mediante una API REST.",
+      "longDescription": "Aplicación web orientada a la búsqueda y exploración de catálogos cinematográficos en MongoDB. Implementa índices de texto, consultas optimizadas, ordenamiento por relevancia y una API REST que entrega los resultados listos para su visualización en una interfaz dinámica.",
       "category": "Backend",
-      "tags": ["Node.js", "MongoDB", "Mongoose", "Express", "TypeScript"],
-      "technologies": ["Node.js", "MongoDB Atlas", "Mongoose", "TypeScript", "Express"],
+      "tags": ["Node.js", "Express", "MongoDB", "JavaScript", "HTML/CSS"],
+      "technologies": ["Node.js", "Express", "MongoDB", "JavaScript", "HTML5", "CSS3"],
       "featured": true,
       "githubUrl": "https://github.com/jereet/BuscadorMongoDB",
       "liveUrl": "https://github.com/jereet/BuscadorMongoDB",
       "role": "Desarrollador Backend & Bases de Datos",
       "timeline": "2024",
       "architecture": [
-        "Creación de índices de texto y compuestos en MongoDB.",
-        "Consultas estructuradas con el framework de agregaciones de MongoDB.",
-        "API para recibir parámetros de búsqueda y retornar resultados paginados.",
-        "Interfaz gráfica para probar filtros y visualizar los documentos encontrados."
+        "API REST desarrollada en Node.js y Express para consultas de películas.",
+        "Modelado de esquemas y creación de índices de texto en MongoDB.",
+        "Ordenamiento dinámico por score de relevancia y filtros por género/año.",
+        "Frontend conectado para visualización fluida de los resultados."
       ],
       "challenges": [
         {
-          "title": "Búsqueda por palabras clave sobre múltiples campos",
-          "solution": "Configuración de un índice de texto completo en la colección con ponderación en los campos principales."
+          "title": "Búsqueda textual rápida con ponderación de campos",
+          "solution": "Creación de índices de texto en MongoDB ponderando título, sinopsis y elenco para priorizar las coincidencias más acertadas."
         },
         {
-          "title": "Filtrado por múltiples categorías simultáneas",
-          "solution": "Uso de etapas de agregación para agrupar y contar resultados disponibles según los filtros aplicados."
+          "title": "API modular para filtros combinados",
+          "solution": "Controladores en Express con sanitización de parámetros para construir queries dinámicas y seguras hacia MongoDB."
         }
       ],
       "features": [
-        "Búsqueda por texto libre sobre colecciones.",
-        "Filtros por categorías y rangos numéricos.",
-        "Paginación clara de resultados.",
-        "Conexión con base de datos MongoDB Atlas."
+        "Búsqueda por texto con puntuación de relevancia.",
+        "Filtros por categorías, géneros y años.",
+        "API REST modular con endpoints documentados.",
+        "Visualización limpia de sinopsis, puntuaciones y detalles."
       ],
       "image": "/projects/buscador-mongo.webp",
       "order": 4
@@ -172,15 +172,22 @@
     {
       "id": "link-linkedin",
       "name": "LinkedIn",
-      "url": "https://linkedin.com/in/jereet",
+      "url": "https://linkedin.com/in/jeremias-toranzo-4422901b1",
       "icon": "linkedin",
       "highlight": true
     },
     {
       "id": "link-email",
       "name": "Email",
-      "url": "mailto:jeremias.contacto.dev@gmail.com",
+      "url": "mailto:jereet31@gmail.com",
       "icon": "mail",
+      "highlight": true
+    },
+    {
+      "id": "link-whatsapp",
+      "name": "WhatsApp",
+      "url": "https://wa.me/5492914298647",
+      "icon": "globe",
       "highlight": true
     },
     {

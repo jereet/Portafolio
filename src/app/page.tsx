@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { SelectedProjects } from "@/components/sections/selected-projects";
 import { AboutSection } from "@/components/sections/about-section";
 import { TechStackSection } from "@/components/sections/tech-stack-section";
+import { ExperienceSection } from "@/components/sections/experience-section";
 import { ContactSection } from "@/components/sections/contact-section";
 
 export default async function HomePage() {
@@ -15,6 +16,7 @@ export default async function HomePage() {
       <SelectedProjects projects={allProjects} />
       <AboutSection />
       <TechStackSection />
+      <ExperienceSection />
       <ContactSection links={allLinks} />
     </div>
   );

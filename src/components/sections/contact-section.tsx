@@ -33,7 +33,7 @@ export function ContactSection({ links }: ContactSectionProps) {
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("jeremias.contacto.dev@gmail.com");
+    navigator.clipboard.writeText("jereet31@gmail.com");
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
@@ -104,10 +104,10 @@ export function ContactSection({ links }: ContactSectionProps) {
                 <div className="min-w-0">
                   <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">Correo Electrónico</div>
                   <a
-                    href="mailto:jeremias.contacto.dev@gmail.com"
+                    href="mailto:jereet31@gmail.com"
                     className="text-xs sm:text-sm font-medium text-emerald-300 hover:underline truncate block"
                   >
-                    jeremias.contacto.dev@gmail.com
+                    jereet31@gmail.com
                   </a>
                 </div>
                 <button
@@ -117,6 +117,22 @@ export function ContactSection({ links }: ContactSectionProps) {
                 >
                   {copiedEmail ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                 </button>
+              </div>
+
+              {/* Teléfono / WhatsApp */}
+              <div className="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800/80 flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">Celular / WhatsApp</div>
+                  <a
+                    href="https://wa.me/5492914298647"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs sm:text-sm font-medium text-emerald-300 hover:underline truncate block"
+                  >
+                    +54 9 291 429-8647
+                  </a>
+                </div>
+                <span className="text-[10px] font-mono text-zinc-500 bg-zinc-800 px-2 py-1 rounded">AR</span>
               </div>
 
               {/* Social links */}
@@ -136,7 +152,7 @@ export function ContactSection({ links }: ContactSectionProps) {
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/jereet"
+                  href="https://linkedin.com/in/jeremias-toranzo-4422901b1"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-between p-3 rounded-xl bg-zinc-900/60 border border-zinc-800/60 hover:border-emerald-500/30 text-zinc-300 hover:text-white transition-all text-xs"
@@ -144,7 +160,7 @@ export function ContactSection({ links }: ContactSectionProps) {
                   <div className="flex items-center gap-2.5">
                     <LinkedinIcon className="h-4 w-4 text-emerald-400" />
                     <span className="font-medium">LinkedIn</span>
-                    <span className="text-zinc-500 font-mono">/in/jereet</span>
+                    <span className="text-zinc-500 font-mono">jeremias-toranzo</span>
                   </div>
                   <span className="text-zinc-500">linkedin.com ↗</span>
                 </a>

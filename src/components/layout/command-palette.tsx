@@ -40,10 +40,11 @@ export function CommandPalette({ isOpen, onClose, projects, links }: CommandPale
   const items = useMemo(() => {
     const navItems = [
       { id: "nav-home", label: "Inicio", subtitle: "Hero & Presentación Principal", icon: Terminal, action: () => router.push("/") },
-      { id: "nav-projects", label: "Proyectos Seleccionados", subtitle: "Ver todos los proyectos de ingeniería", icon: FolderKanban, action: () => router.push("/projects") },
-      { id: "nav-about", label: "Sobre Mí", subtitle: "Formación en Ciencias de la Computación & AI", icon: User, action: () => router.push("/about") },
-      { id: "nav-stack", label: "Tech Stack", subtitle: "Lenguajes, Frameworks & Agentes de IA", icon: Sparkles, action: () => router.push("/#stack") },
-      { id: "nav-contact", label: "Contacto", subtitle: "Formulario & Opciones de reunión", icon: Mail, action: () => router.push("/contact") },
+      { id: "nav-projects", label: "Proyectos", subtitle: "Ver todos los proyectos desarrollados", icon: FolderKanban, action: () => router.push("/#projects") },
+      { id: "nav-about", label: "Sobre Mí", subtitle: "Educación & Perfil Profesional", icon: User, action: () => router.push("/#about") },
+      { id: "nav-stack", label: "Tech Stack", subtitle: "Lenguajes, Frameworks & Bases de Datos", icon: Sparkles, action: () => router.push("/#stack") },
+      { id: "nav-experience", label: "Experiencia Laboral", subtitle: "Trayectoria y pasantías profesionalizantes", icon: FolderKanban, action: () => router.push("/#experience") },
+      { id: "nav-contact", label: "Contacto", subtitle: "Email, WhatsApp & Formulario", icon: Mail, action: () => router.push("/#contact") },
       { id: "nav-admin", label: "Panel de Administración", subtitle: "Gestionar proyectos y enlaces", icon: Lock, action: () => router.push("/admin") },
     ];
 
@@ -59,10 +60,10 @@ export function CommandPalette({ isOpen, onClose, projects, links }: CommandPale
       {
         id: "action-copy-email",
         label: copiedEmail ? "¡Email Copiado al Portapapeles!" : "Copiar Email",
-        subtitle: "jeremias.contacto.dev@gmail.com",
+        subtitle: "jereet31@gmail.com",
         icon: copiedEmail ? Check : Mail,
         action: () => {
-          navigator.clipboard.writeText("jeremias.contacto.dev@gmail.com");
+          navigator.clipboard.writeText("jereet31@gmail.com");
           setCopiedEmail(true);
           setTimeout(() => setCopiedEmail(false), 2000);
         },

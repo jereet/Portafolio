@@ -3,65 +3,71 @@ import { TechCategory } from "@/types";
 export const techCategories: TechCategory[] = [
   {
     title: "Lenguajes de Programación",
-    description: "Bases sólidas de computación con tipado estricto y alto rendimiento.",
+    description: "Dominio de lenguajes compilados, interpretados y orientados a objetos.",
     items: [
-      { name: "TypeScript", description: "Tipado estricto, genéricos, inferencia y patrones funcionales.", level: "Avanzado", highlight: true },
-      { name: "JavaScript (ESNext)", description: "Event loop, concurrencia, asincronía y optimizaciones.", level: "Avanzado", highlight: true },
-      { name: "Python", description: "Scripting, automatización, APIs y manipulación de datos.", level: "Avanzado" },
-      { name: "C / C++", description: "Fundamentos de memoria, punteros y estructuras de datos de la facultad.", level: "Competente" },
-      { name: "SQL", description: "Modelado relacional, subconsultas, índices y optimización de planes.", level: "Avanzado" }
+      { name: "Java", description: "Programación orientada a objetos, estructuras de datos y patrones de diseño.", level: "Avanzado", highlight: true },
+      { name: "SQL", description: "Diseño y modelado relacional, consultas complejas, índices y normalización.", level: "Avanzado", highlight: true },
+      { name: "JavaScript", description: "Desarrollo web moderno, asincronía, manipulación del DOM y APIs.", level: "Avanzado", highlight: true },
+      { name: "Kotlin", description: "Desarrollo moderno, Compose Multiplatform, arquitectura MVVM y corrutinas.", level: "Avanzado", highlight: true },
+      { name: "TypeScript", description: "Tipado estático, interfaces, generics y desarrollo escalable.", level: "Avanzado", highlight: true },
+      { name: "Python", description: "Scripts, automatización, procesamiento de datos y algoritmos.", level: "Competente" },
+      { name: "PHP", description: "Desarrollo backend, conexión con MySQL y procesamiento en servidor.", level: "Competente" }
     ]
   },
   {
-    title: "Frontend & Experiencia de Usuario",
-    description: "Interfaces reactivas, accesibles y con microinteracciones de alta fidelidad.",
+    title: "Bases de Datos",
+    description: "Diseño, modelado y administración de bases relacionales y documentales.",
     items: [
-      { name: "React 19 / 18", description: "Hooks, Server Components, Concurrent Mode y arquitectura de estado.", level: "Avanzado", highlight: true },
-      { name: "Next.js (App Router)", description: "SSR, ISR, Server Actions, layouts anidados y optimización de rutas.", level: "Avanzado", highlight: true },
-      { name: "Tailwind CSS", description: "Design systems con utilidades, variables CSS, animaciones fluidas.", level: "Avanzado", highlight: true },
-      { name: "Framer Motion", description: "Animaciones declarativas, gestos, transiciones entre páginas y layouts.", level: "Avanzado" },
-      { name: "shadcn/ui & Radix UI", description: "Componentes accesibles, headless primitives y soporte WAI-ARIA.", level: "Avanzado" },
-      { name: "Zod & React Hook Form", description: "Validación estricta de esquemas en tiempo de compilación y ejecución.", level: "Avanzado" }
+      { name: "PostgreSQL", description: "Bases de datos relacionales, integridad referencial y consultas optimizadas.", level: "Avanzado", highlight: true },
+      { name: "MySQL", description: "Administración, esquemas relacionales, triggers y operaciones de producción.", level: "Avanzado", highlight: true },
+      { name: "MongoDB", description: "Bases NoSQL documentales, consultas con agregaciones, índices y Atlas.", level: "Avanzado", highlight: true },
+      { name: "Diseño y Modelado", description: "Diagramas entidad-relación, normalización de esquemas y optimización.", level: "Avanzado" }
     ]
   },
   {
-    title: "Backend & Arquitectura de Software",
-    description: "Sistemas distribuidos, APIs robustas y procesamiento en tiempo real.",
+    title: "Frontend Web & Escritorio",
+    description: "Interfaces modernas, responsivas y accesibles para web y escritorio.",
     items: [
-      { name: "Node.js & Express", description: "Servidores REST, middlewares, autenticación y stream de datos.", level: "Avanzado", highlight: true },
-      { name: "Next.js Server Actions & APIs", description: "Rutas tipadas, mutaciones seguras y ejecución server-side.", level: "Avanzado", highlight: true },
-      { name: "WebSockets & Event-Driven", description: "Sincronización en tiempo real, eventos pub/sub y manejo de salas.", level: "Competente" },
-      { name: "RESTful API Design", description: "Especificaciones OpenAPI, versionado, códigos HTTP canónicos y rate limiting.", level: "Avanzado" }
+      { name: "Next.js & React", description: "App Router, componentes funcionales, hooks y renderizado ágil.", level: "Avanzado", highlight: true },
+      { name: "Tailwind CSS", description: "Diseño ágil con utility-first, diseño adaptativo y paletas de color modernas.", level: "Avanzado", highlight: true },
+      { name: "Compose Multiplatform", description: "Desarrollo de aplicaciones de escritorio multiplataforma con Kotlin.", level: "Avanzado", highlight: true },
+      { name: "HTML5 & CSS3", description: "Estructuras semánticas, animaciones, flexbox, CSS grid y responsive design.", level: "Avanzado" }
     ]
   },
   {
-    title: "Bases de Datos & Persistencia",
-    description: "Modelado eficiente, consistencia ACID y consultas agregadas de alta velocidad.",
+    title: "Backend, Servidores & APIs",
+    description: "Arquitecturas limpias, creación de servicios y comunicación segura.",
     items: [
-      { name: "PostgreSQL", description: "Bases relacionales, triggers, índices compuestos y constraints.", level: "Avanzado", highlight: true },
-      { name: "MongoDB & Mongoose", description: "Modelado documental, Aggregation Pipelines complejas e índices de texto.", level: "Avanzado", highlight: true },
-      { name: "Prisma ORM", description: "Migraciones automáticas, tipado end-to-end y consultas optimizadas.", level: "Avanzado", highlight: true },
-      { name: "Redis", description: "Caché en memoria, sesiones distribuidas y colas de trabajo.", level: "Competente" }
+      { name: "Arquitectura Modular y por Capas", description: "Separación de responsabilidades, capas de dominio, datos y presentación.", level: "Avanzado", highlight: true },
+      { name: "APIs REST & Webhooks", description: "Diseño, desarrollo e integración de APIs RESTful y eventos webhook.", level: "Avanzado", highlight: true },
+      { name: "Node.js & Express", description: "Servidores ligeros, middlewares, autenticación y endpoints JSON.", level: "Avanzado" },
+      { name: "Ktor", description: "Framework ligero de Kotlin para clientes HTTP y APIs asincrónicas.", level: "Competente" }
     ]
   },
   {
-    title: "Desarrollo Asistido por Agentes de IA",
-    description: "Multiplicación de productividad con flujos agénticos y orquestación de LLMs.",
+    title: "Inteligencia Artificial y Desarrollo Asistido",
+    description: "Flujos de trabajo acelerados por herramientas de última generación.",
     items: [
-      { name: "AI Agent Orchestration", description: "Diseño de flujos de trabajo multi-agente, arquitecturas 'human-in-the-loop' y subagentes.", level: "Avanzado", highlight: true },
-      { name: "SDKs de LLMs (Gemini / OpenAI)", description: "Function calling, estructuración de salidas (JSON schema) y RAG.", level: "Avanzado", highlight: true },
-      { name: "Prompt Engineering & Context Curation", description: "Técnicas avanzadas de prompting, Chain-of-Thought y curación de contexto.", level: "Avanzado" },
-      { name: "Desarrollo con Cursor & Copilot", description: "Refactorización asistida, scaffolding inteligente y test-driven coding acelerado.", level: "Avanzado" }
+      { name: "Google Antigravity", description: "Uso de entornos avanzados agénticos de desarrollo asistido por IA.", level: "Avanzado", highlight: true },
+      { name: "ClaudeCode", description: "Pair programming asistido por terminal para refactorización y testing.", level: "Avanzado", highlight: true },
+      { name: "OpenCode", description: "Herramientas de código abierto y flujos inteligentes de desarrollo.", level: "Avanzado" }
     ]
   },
   {
-    title: "DevOps, Herramientas & Calidad",
-    description: "Entrega continua, testing automatizado y observabilidad.",
+    title: "Herramientas, Sistemas & Entornos",
+    description: "Control de versiones, infraestructura y sistemas operativos.",
     items: [
-      { name: "Git & GitHub Workflows", description: "Branching strategies, code reviews, PRs limpias y GitHub Actions.", level: "Avanzado", highlight: true },
-      { name: "Vercel & Cloud Deployments", description: "Edge functions, analytics, variables de entorno seguras y dominios.", level: "Avanzado" },
-      { name: "Docker", description: "Contenedores reproducibles para entornos de desarrollo y microservicios.", level: "Competente" },
-      { name: "Testing (Vitest / Playwright)", description: "Pruebas unitarias, de integración y end-to-end.", level: "Competente" }
+      { name: "Git & GitHub", description: "Control de versiones, ramas, pull requests y flujo de colaboración.", level: "Avanzado", highlight: true },
+      { name: "Ubuntu / Linux", description: "Administración básica de servidores Linux, terminal Bash y permisos.", level: "Avanzado" },
+      { name: "Docker", description: "Contenerización de aplicaciones para desarrollo y despliegue consistente.", level: "Competente" },
+      { name: "Redes & Soporte Técnico", description: "Diagnóstico de conectividad, configuración de redes LAN y mantenimiento.", level: "Avanzado" }
     ]
   }
+];
+
+export const additionalEducation = [
+  { title: "Desarrollo Kotlin Multiplatform", institution: "Universidad Nacional Del Sur", year: "2025" },
+  { title: "Desarrollo de videojuegos 2D Godot", institution: "Universidad Nacional Del Sur", year: "2025" },
+  { title: "Desarrollo de Aplicaciones Móviles", institution: "Ticmas Academy", year: "2023" },
+  { title: "Desarrollo Front-End", institution: "Ticmas Academy", year: "2023" },
 ];

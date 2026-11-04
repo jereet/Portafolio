@@ -27,7 +27,7 @@ export function Footer({ links }: FooterProps) {
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                 <Terminal className="h-4 w-4" />
               </div>
-              <span className="font-bold">JEREMÍAS</span>
+              <span className="font-bold">JEREMÍAS TORANZO</span>
               <span className="text-zinc-500 text-xs">/ Fullstack & Informática</span>
             </div>
             <p className="text-sm text-zinc-400 max-w-md leading-relaxed">
@@ -46,22 +46,32 @@ export function Footer({ links }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-sm text-zinc-400">
               <li>
-                <Link href="/" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#hero" className="hover:text-emerald-400 transition-colors">
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="hover:text-emerald-400 transition-colors">
-                  Proyectos Seleccionados
+                <Link href="/#projects" className="hover:text-emerald-400 transition-colors">
+                  Proyectos
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-emerald-400 transition-colors">
-                  Sobre Mí & Formación
+                <Link href="/#about" className="hover:text-emerald-400 transition-colors">
+                  Sobre Mí
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-emerald-400 transition-colors">
+                <Link href="/#stack" className="hover:text-emerald-400 transition-colors">
+                  Stack Tecnológico
+                </Link>
+              </li>
+              <li>
+                <Link href="/#experience" className="hover:text-emerald-400 transition-colors">
+                  Experiencia Laboral
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className="hover:text-emerald-400 transition-colors">
                   Contacto Directo
                 </Link>
               </li>
@@ -90,7 +100,7 @@ export function Footer({ links }: FooterProps) {
                 <ArrowUpRight className="h-3 w-3 text-zinc-600" />
               </a>
               <a
-                href="https://linkedin.com/in/jereet"
+                href="https://linkedin.com/in/jeremias-toranzo-4422901b1"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 hover:text-emerald-400 transition-colors"
@@ -100,11 +110,11 @@ export function Footer({ links }: FooterProps) {
                 <ArrowUpRight className="h-3 w-3 text-zinc-600" />
               </a>
               <a
-                href="mailto:jeremias.contacto.dev@gmail.com"
+                href="mailto:jereet31@gmail.com"
                 className="inline-flex items-center gap-2 hover:text-emerald-400 transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span>jeremias.contacto.dev@gmail.com</span>
+                <span>jereet31@gmail.com</span>
               </a>
             </div>
           </div>

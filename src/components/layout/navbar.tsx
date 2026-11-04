@@ -44,7 +44,7 @@ export function Navbar({ projects, links }: NavbarProps) {
       return;
     }
 
-    const sections = ["hero", "projects", "about", "stack", "contact"];
+    const sections = ["hero", "projects", "about", "stack", "experience", "contact"];
 
     const handleScrollSpy = () => {
       const scrollPosition = window.scrollY + 200; // offset for detection
@@ -63,7 +63,7 @@ export function Navbar({ projects, links }: NavbarProps) {
     };
 
     window.addEventListener("scroll", handleScrollSpy, { passive: true });
-    handleScrollSpy(); // initial check
+    handleScrollSpy();
 
     return () => window.removeEventListener("scroll", handleScrollSpy);
   }, [pathname]);
@@ -85,6 +85,7 @@ export function Navbar({ projects, links }: NavbarProps) {
     { id: "projects", label: "Proyectos", href: "/#projects" },
     { id: "about", label: "Sobre Mí", href: "/#about" },
     { id: "stack", label: "Stack", href: "/#stack" },
+    { id: "experience", label: "Experiencia", href: "/#experience" },
     { id: "contact", label: "Contacto", href: "/#contact" },
   ];
 
@@ -122,7 +123,7 @@ export function Navbar({ projects, links }: NavbarProps) {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold flex items-center gap-1.5">
-                  JEREMÍAS <span className="text-emerald-400 text-xs font-normal px-1 py-0.2 rounded bg-emerald-500/10 border border-emerald-500/20">DEV</span>
+                  JEREMÍAS <span className="text-emerald-400 text-xs font-normal px-1 py-0.2 rounded bg-emerald-500/10 border border-emerald-500/20">TORANZO</span>
                 </span>
               </div>
             </Link>
@@ -140,7 +141,7 @@ export function Navbar({ projects, links }: NavbarProps) {
                     key={link.id}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link)}
-                    className="relative px-4 py-1.5 text-xs font-medium rounded-full transition-colors duration-200"
+                    className="relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-colors duration-200"
                   >
                     {/* Animated Sliding Pill */}
                     {isActive && (
