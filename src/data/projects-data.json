@@ -1,0 +1,214 @@
+{
+  "projects": [
+    {
+      "id": "proj-1",
+      "slug": "mixrush-juego-de-mesa-digital",
+      "title": "MixRush",
+      "subtitle": "Juego de Mesa Digital Multijugador en Tiempo Real",
+      "description": "Plataforma lúdica interactiva digital que traslada la dinámica de juegos de mesa a una experiencia web multijugador fluida, con sincronización de estado y rondas competitivas.",
+      "longDescription": "MixRush reinventa los juegos de mesa clásicos combinando interacción en vivo, mecánicas por turnos dinámicas y un sistema reactivo de desafíos. Diseñado con una arquitectura desacoplada para gestionar partidas concurrentes, sincronización de eventos y feedback audiovisual en cada acción del jugador.",
+      "category": "Real-time",
+      "tags": ["React", "TypeScript", "Real-time State", "Tailwind CSS", "Framer Motion", "Node.js"],
+      "technologies": ["React", "TypeScript", "Tailwind CSS", "WebSockets / Polling", "Framer Motion", "Node.js"],
+      "featured": true,
+      "githubUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
+      "liveUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
+      "role": "Lead Full Stack & Game Mechanics Architect",
+      "timeline": "2024",
+      "architecture": [
+        "Gestión de estado distribuido y determinista para control de turnos.",
+        "Arquitectura de componentes desacoplada para tableros reactivos y tarjetas interactivas.",
+        "Animaciones sutiles y microinteracciones con Framer Motion para transiciones físicas de dados y fichas.",
+        "Manejo de reconexión y tolerancia a latencia en dispositivos móviles."
+      ],
+      "challenges": [
+        {
+          "title": "Sincronización de turnos y prevención de estados inconsistentes",
+          "solution": "Se diseñó una máquina de estados determinista en el cliente y backend que valida secuencias de acciones, impidiendo saltos de turno y asegurando que las decisiones de los jugadores se ejecuten en orden estricto."
+        },
+        {
+          "title": "Experiencia fluida y accesible en múltiples tamaños de pantalla",
+          "solution": "Se implementó un diseño de tablero adaptativo con CSS Grid y Viewport Units dinámicas que se ajusta perfectamente tanto en pantallas móviles para jugadores individuales como en tablets o monitores compartidos."
+        }
+      ],
+      "features": [
+        "Sala de juego con códigos de acceso rápido.",
+        "Mecánicas de tablero con casillas especiales, preguntas y pruebas en vivo.",
+        "Control de temporizadores dinámicos con feedback auditivo y visual.",
+        "Tabla de puntuaciones y podio con efectos de celebración."
+      ],
+      "image": "/projects/mixrush.webp",
+      "stats": [
+        { "label": "Latencia UI", "value": "<16ms" },
+        { "label": "Sincronización", "value": "Real-Time" },
+        { "label": "Dispositivos", "value": "100% Responsive" }
+      ],
+      "order": 1
+    },
+    {
+      "id": "proj-2",
+      "slug": "countries-explorer",
+      "title": "Countries Explorer",
+      "subtitle": "Explorador Geográfico y Demográfico Global",
+      "description": "Herramienta analítica de datos geo-demográficos con búsqueda instantánea, filtrado multi-criterio por continentes y métricas comparativas detalladas por país.",
+      "longDescription": "Una aplicación web de ingeniería frontend orientada al rendimiento que procesa, filtra y visualiza datos de más de 250 territorios globales. Implementa patrones avanzados de debouncing, memorización de filtros complejos, navegación accesible por teclado y visualización responsiva.",
+      "category": "Frontend",
+      "tags": ["React", "TypeScript", "REST APIs", "Tailwind CSS", "Debounce Search", "Data Visualization"],
+      "technologies": ["React", "TypeScript", "REST Countries API", "Tailwind CSS", "Custom Hooks", "Theme System"],
+      "featured": true,
+      "githubUrl": "https://github.com/jereet/Countries-Explorer",
+      "liveUrl": "https://github.com/jereet/Countries-Explorer",
+      "role": "Frontend Engineer & UX Designer",
+      "timeline": "2024",
+      "architecture": [
+        "Separación estricta entre capas de consumo de API (Data Layer) y presentación gráfica.",
+        "Pipelines de transformación y normalización de datos para soportar monedas, fronteras e idiomas.",
+        "Sistema de routing dinámico para páginas individuales de países con fronteras enlazadas interactivamente.",
+        "Persistencia de preferencias del usuario y modo oscuro automático."
+      ],
+      "challenges": [
+        {
+          "title": "Filtrado en tiempo real sin congelamiento del hilo principal",
+          "solution": "Implementación de custom hooks de búsqueda con debounce y filtrado memoizado (`useMemo`) para evaluar instantáneamente cadenas de texto, regiones y subregiones sobre el dataset completo sin degradar FPS."
+        },
+        {
+          "title": "Mapeo recursivo de países limítrofes",
+          "solution": "Resolución bidireccional de códigos alfa-3 a nombres oficiales mediante índices hash en memoria O(1), permitiendo navegar entre países fronterizos con un solo click."
+        }
+      ],
+      "features": [
+        "Búsqueda instantánea con resaltado de coincidencias.",
+        "Filtros combinables por región, población y superficie.",
+        "Vista detallada de país con monedas, idiomas nativos y capitales.",
+        "Exploración de países fronterizos con enlaces contextuales directos."
+      ],
+      "image": "/projects/countries.webp",
+      "stats": [
+        { "label": "Dataset", "value": "250+ Países" },
+        { "label": "Tiempo de Búsqueda", "value": "<5ms" },
+        { "label": "Score Lighthouse", "value": "99/100" }
+      ],
+      "order": 2
+    },
+    {
+      "id": "proj-3",
+      "slug": "qr-party-50th",
+      "title": "QR Party 50th",
+      "subtitle": "Plataforma Social de Eventos e Interacción en Vivo",
+      "description": "Sistema interactivo para celebraciones y eventos con generación de credenciales QR dinámicas, muro de fotos en tiempo real y transmisión para proyectores.",
+      "longDescription": "Desarrollada para digitalizar la experiencia de un 50 aniversario, la plataforma permite a los invitados escanear un QR exclusivo en su mesa para enviar fotos, anécdotas y felicitaciones que se proyectan inmediatamente en la pantalla principal del salón mediante streaming reactivo.",
+      "category": "Full Stack",
+      "tags": ["Next.js", "TypeScript", "Event Tech", "Tailwind CSS", "Cloud Storage", "Framer Motion"],
+      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Cloudinary / Storage", "Server Actions"],
+      "featured": true,
+      "githubUrl": "https://github.com/jereet/QR_Party_50th",
+      "liveUrl": "https://github.com/jereet/QR_Party_50th",
+      "role": "Full Stack Engineer",
+      "timeline": "2024",
+      "architecture": [
+        "Módulo de generación de códigos QR únicos parametrizados por mesa e invitado.",
+        "Compresión y optimización de imágenes en el cliente (Web Workers) antes de subida.",
+        "Modo proyector optimizado para pantallas 4K con carrusel infinito y transiciones cinematográficas.",
+        "Panel de moderación para validación rápida de mensajes y recuerdos."
+      ],
+      "challenges": [
+        {
+          "title": "Carga concurrente de imágenes pesadas bajo conexiones móviles saturadas",
+          "solution": "Compresión previa a la transferencia en el navegador mediante canvas y compresión WebP, reduciendo archivos de 12MB a menos de 350KB sin pérdida perceptible de calidad visual."
+        },
+        {
+          "title": "Muro en vivo con modo fullscreen sin memory leaks",
+          "solution": "Gestión de colas de renderizado circular en React con limpieza de nodos DOM no visibles y recarga de memoria controlada para proyecciones continuas de más de 8 horas."
+        }
+      ],
+      "features": [
+        "Generador de códigos QR personalizados para mesas de invitados.",
+        "Carga rápida de fotos y dedicatorias desde cualquier smartphone sin instalación.",
+        "Pantalla Live Showcase para proyectores con transiciones automáticas.",
+        "Galería descargable completa al finalizar el evento."
+      ],
+      "image": "/projects/qrparty.webp",
+      "stats": [
+        { "label": "Compresión Cliente", "value": "95% Reducción" },
+        { "label": "Tiempo de Subida", "value": "<1.5s" },
+        { "label": "Disponibilidad", "value": "100% Uptime" }
+      ],
+      "order": 3
+    },
+    {
+      "id": "proj-4",
+      "slug": "buscador-mongodb",
+      "title": "Buscador MongoDB",
+      "subtitle": "Motor de Búsqueda y Consultas Agregadas de Alta Velocidad",
+      "description": "Arquitectura de backend e interfaz analítica para indexación y consulta avanzada sobre MongoDB con text indexing, filtros facetados y paginación optimizada.",
+      "longDescription": "Solución de ingeniería orientada a bases de datos que exprime el poder de MongoDB Aggregation Framework. Permite realizar consultas de texto completo, ponderación de relevancia por campos, filtros multi-faceta y exportación de datos con métricas de tiempo de ejecución de queries.",
+      "category": "Backend",
+      "tags": ["Node.js", "MongoDB Atlas", "Mongoose", "Aggregation Pipeline", "REST API", "TypeScript"],
+      "technologies": ["Node.js", "MongoDB", "Mongoose", "TypeScript", "Express / Next.js", "Tailwind CSS"],
+      "featured": true,
+      "githubUrl": "https://github.com/jereet/BuscadorMongoDB",
+      "liveUrl": "https://github.com/jereet/BuscadorMongoDB",
+      "role": "Backend & Database Architect",
+      "timeline": "2024",
+      "architecture": [
+        "Estrategia de indexación con compound indexes y text indexes ponderados.",
+        "Aggregation Pipelines estructurados en etapas ($match, $project, $facet, $sort, $limit).",
+        "Paginación basada en cursores para evitar el overhead de saltos altos con `$skip`.",
+        "Panel interactivo con telemetría de tiempos de respuesta de consulta."
+      ],
+      "challenges": [
+        {
+          "title": "Evitar COLLSCAN en consultas multi-campo con filtros dinámicos",
+          "solution": "Creación de un generador de consultas dinámico que analiza la cardinalidad de los filtros recibidos y selecciona la combinación de índices óptima utilizando `hint` y ordenamiento por scoring de texto."
+        },
+        {
+          "title": "Cálculo de conteos facetados sin duplicar ejecuciones de consulta",
+          "solution": "Uso de la etapa `$facet` de MongoDB para obtener simultáneamente los resultados paginados de la página actual y la distribución total de categorías y rangos en un único round-trip a la base de datos."
+        }
+      ],
+      "features": [
+        "Búsqueda por texto ponderado con corrección y puntuación de relevancia.",
+        "Faceting dinámico con conteo automático de documentos por categoría.",
+        "Indicador visual de tiempo de ejecución y telemetría de la base de datos.",
+        "Filtros por rangos de valores y ordenamiento multi-columna."
+      ],
+      "image": "/projects/buscador-mongo.webp",
+      "stats": [
+        { "label": "Query Latency", "value": "<12ms" },
+        { "label": "Index Coverage", "value": "100% IXSCAN" },
+        { "label": "Optimización", "value": "$facet Single Pass" }
+      ],
+      "order": 4
+    }
+  ],
+  "links": [
+    {
+      "id": "link-github",
+      "name": "GitHub",
+      "url": "https://github.com/jereet",
+      "icon": "github",
+      "highlight": true
+    },
+    {
+      "id": "link-linkedin",
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/jereet",
+      "icon": "linkedin",
+      "highlight": true
+    },
+    {
+      "id": "link-email",
+      "name": "Email",
+      "url": "mailto:jeremias.contacto.dev@gmail.com",
+      "icon": "mail",
+      "highlight": true
+    },
+    {
+      "id": "link-cv",
+      "name": "Descargar CV",
+      "url": "/cv/CV_Jeremias_FullStack.pdf",
+      "icon": "file-text",
+      "highlight": false
+    }
+  ]
+}

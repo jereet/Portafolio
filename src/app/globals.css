@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #090a0f;
+    --foreground: #f4f4f5;
+    --card: #111318;
+    --card-foreground: #f4f4f5;
+    --primary: #10b981;
+    --primary-foreground: #090a0f;
+    --secondary: #1f242d;
+    --secondary-foreground: #f4f4f5;
+    --muted: #1e222a;
+    --muted-foreground: #a1a1aa;
+    --accent: #059669;
+    --accent-foreground: #ffffff;
+    --border: #222733;
+    --ring: #10b981;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  overflow-x: hidden;
+}
+
+/* Custom technological scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Subtle tech grid background */
+.bg-grid-tech {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle 500px at 50% 10%, rgba(16, 185, 129, 0.12), transparent 70%);
+}
+
+.bg-card-glass {
+  background: rgba(17, 20, 27, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.green-glow {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25);
+}
+
+.green-border-glow:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.2);
+}
+
+/* Code block font */
+code, pre {
+  font-family: var(--font-geist-mono), monospace;
+}
