@@ -120,13 +120,9 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
       ],
       features: [
         "Interfaz adaptativa y accesible.",
-        "Validación estricta de datos de entrada."
+        "Validación de datos de entrada."
       ],
       image: "/projects/default.webp",
-      stats: [
-        { label: "Latencia", value: "<20ms" },
-        { label: "Uptime", value: "99.9%" }
-      ],
       order: projects.length + 1
     });
     setIsProjectModalOpen(true);

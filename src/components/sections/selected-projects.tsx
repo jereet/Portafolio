@@ -27,13 +27,13 @@ export function SelectedProjects({ projects }: SelectedProjectsProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider uppercase text-emerald-400">
-              <span className="text-zinc-600">01 //</span> Proyectos Seleccionados
+              <span className="text-zinc-600">01 //</span> Proyectos
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              Ingeniería en Acción
+              Proyectos Desarrollados
             </h2>
             <p className="text-zinc-400 max-w-xl text-sm sm:text-base leading-relaxed">
-              Soluciones construidas desde cero con foco en rendimiento, arquitectura limpia y valor tangible. Cada proyecto cuenta con un desglose técnico de decisiones y retos resueltos.
+              Aplicaciones web fullstack, interfaces interactivas y proyectos con bases de datos SQL y NoSQL. Cada uno cuenta con detalle de funcionalidades y enlace a GitHub.
             </p>
           </div>
 

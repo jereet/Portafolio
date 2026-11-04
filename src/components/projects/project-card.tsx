@@ -63,18 +63,6 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           {project.description}
         </p>
 
-        {/* Stats strip if available */}
-        {project.stats && project.stats.length > 0 && (
-          <div className="grid grid-cols-3 gap-2 py-3 border-y border-zinc-800/60 bg-zinc-900/30 rounded-xl px-3 my-2">
-            {project.stats.map((s, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-xs font-mono font-bold text-emerald-300">{s.value}</div>
-                <div className="text-[10px] text-zinc-500 font-mono uppercase tracking-wider">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 pt-1">
           {project.tags.map((tag) => (

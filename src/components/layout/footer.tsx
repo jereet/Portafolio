@@ -28,14 +28,14 @@ export function Footer({ links }: FooterProps) {
                 <Terminal className="h-4 w-4" />
               </div>
               <span className="font-bold">JEREMÍAS</span>
-              <span className="text-zinc-500 text-xs">/ Full Stack & AI Assisted Engineering</span>
+              <span className="text-zinc-500 text-xs">/ Fullstack & Informática</span>
             </div>
             <p className="text-sm text-zinc-400 max-w-md leading-relaxed">
-              Combinando rigor de Ciencias de la Computación, diseño de experiencias intuitivas y la potencia del desarrollo asistido por agentes de inteligencia artificial.
+              Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática. Desarrollo web fullstack, bases de datos SQL y NoSQL y herramientas de IA.
             </p>
             <div className="flex items-center gap-2 text-xs text-zinc-500 font-mono">
               <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
-              <span>Sistemas operativos en producción • Alta disponibilidad</span>
+              <span>Disponible para nuevos desafíos</span>
             </div>
           </div>
 

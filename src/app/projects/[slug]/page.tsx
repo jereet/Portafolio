@@ -124,22 +124,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </header>
 
-        {/* Stats Strip */}
-        {project.stats && project.stats.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-10">
-            {project.stats.map((s, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-xl border border-zinc-800/80 bg-zinc-950/60 text-center"
-              >
-                <div className="text-2xl font-mono font-bold text-emerald-400">{s.value}</div>
-                <div className="text-xs font-mono text-zinc-400 mt-1 uppercase tracking-wider">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Technical Challenges & Solutions (Crucial for Senior Assessment) */}
+        {/* Technical Challenges & Solutions */}
         <section className="my-14 space-y-6">
           <div className="space-y-1">
             <div className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">

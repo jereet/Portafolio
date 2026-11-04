@@ -17,20 +17,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Jeremías — Full Stack Software Engineer & AI-Augmented Developer",
+    default: "Jeremías — Fullstack & Ciencias de la Computación",
     template: "%s | Jeremías",
   },
   description:
-    "Portafolio profesional de Jeremías. Desarrollador Full Stack con bases en Ciencias de la Computación, arquitectura de software, experiencia de usuario y desarrollo asistido por agentes de IA.",
+    "Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática. Sólidos conocimientos en programación, desarrollo web fullstack, SQL, NoSQL y herramientas de IA.",
   keywords: [
     "Full Stack Developer",
-    "Software Engineer",
+    "Ciencias de la Computación",
+    "Técnico en Informática",
     "Next.js",
     "React",
     "TypeScript",
     "PostgreSQL",
     "MongoDB",
-    "AI Agents",
+    "SQL",
+    "NoSQL",
     "Argentina",
   ],
   authors: [{ name: "Jeremías" }],
@@ -39,16 +41,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     url: "https://jeremias-portfolio.vercel.app",
-    title: "Jeremías — Full Stack Software Engineer",
+    title: "Jeremías — Fullstack & Ciencias de la Computación",
     description:
-      "Ingeniería de software, diseño de producto y desarrollo asistido por agentes de IA.",
+      "Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática.",
     siteName: "Jeremías Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jeremías — Full Stack Software Engineer",
+    title: "Jeremías — Fullstack & Ciencias de la Computación",
     description:
-      "Ingeniería de software, diseño de producto y desarrollo asistido por agentes de IA.",
+      "Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática.",
   },
   icons: {
     icon: "/favicon.ico",

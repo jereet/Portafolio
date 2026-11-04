@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { 
   Terminal, 
   Command, 
@@ -11,9 +12,9 @@ import {
   Lock, 
   ArrowUpRight 
 } from "lucide-react";
-import { GithubIcon } from "@/components/ui/icons";
 import { CommandPalette } from "./command-palette";
 import { Project, SocialLink } from "@/types";
+import { GithubIcon } from "@/components/ui/icons";
 
 interface NavbarProps {
   projects: Project[];
@@ -22,17 +23,50 @@ interface NavbarProps {
 
 export function Navbar({ projects, links }: NavbarProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isCommandOpen, setIsCommandOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("hero");
 
+  // Track scroll position for navbar background
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Track active section as user scrolls up and down
+  useEffect(() => {
+    if (pathname !== "/") {
+      return;
+    }
+
+    const sections = ["hero", "projects", "about", "stack", "contact"];
+
+    const handleScrollSpy = () => {
+      const scrollPosition = window.scrollY + 200; // offset for detection
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const id = sections[i];
+        const element = document.getElementById(id);
+        if (element) {
+          const top = element.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    handleScrollSpy(); // initial check
+
+    return () => window.removeEventListener("scroll", handleScrollSpy);
+  }, [pathname]);
 
   // Global Ctrl+K / Cmd+K handler
   useEffect(() => {
@@ -47,25 +81,38 @@ export function Navbar({ projects, links }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Inicio" },
-    { href: "/projects", label: "Proyectos" },
-    { href: "/about", label: "Sobre Mí" },
-    { href: "/#stack", label: "Stack" },
-    { href: "/contact", label: "Contacto" },
+    { id: "hero", label: "Inicio", href: "/#hero" },
+    { id: "projects", label: "Proyectos", href: "/#projects" },
+    { id: "about", label: "Sobre Mí", href: "/#about" },
+    { id: "stack", label: "Stack", href: "/#stack" },
+    { id: "contact", label: "Contacto", href: "/#contact" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: typeof navLinks[0]) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(item.id);
+      if (el) {
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+        setActiveSection(item.id);
+      }
+    }
+  };
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "py-3 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/80 shadow-lg shadow-black/40"
+            ? "py-3 bg-zinc-950/85 backdrop-blur-xl border-b border-zinc-800/80 shadow-lg shadow-black/50"
             : "py-5 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between">
-            {/* Logo / Monogram */}
+            {/* Logo */}
             <Link
               href="/"
               className="group flex items-center gap-2.5 font-mono text-sm tracking-tight text-zinc-100 hover:text-emerald-400 transition-colors"
@@ -80,31 +127,48 @@ export function Navbar({ projects, links }: NavbarProps) {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-1 bg-zinc-900/60 p-1.5 rounded-full border border-zinc-800/80 backdrop-blur-md">
+            {/* Desktop Navigation Links with Animated Active Indicator */}
+            <div className="hidden md:flex items-center gap-1 bg-zinc-900/70 p-1.5 rounded-full border border-zinc-800/80 backdrop-blur-md relative">
               {navLinks.map((link) => {
                 const isActive =
-                  link.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(link.href) && link.href !== "/#stack";
+                  pathname === "/"
+                    ? activeSection === link.id
+                    : pathname.startsWith(`/${link.id}`);
 
                 return (
-                  <Link
-                    key={link.href}
+                  <a
+                    key={link.id}
                     href={link.href}
-                    className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
-                      isActive
-                        ? "bg-emerald-500 text-zinc-950 font-semibold shadow-sm shadow-emerald-500/50"
-                        : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60"
-                    }`}
+                    onClick={(e) => handleNavClick(e, link)}
+                    className="relative px-4 py-1.5 text-xs font-medium rounded-full transition-colors duration-200"
                   >
-                    {link.label}
-                  </Link>
+                    {/* Animated Sliding Pill */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavIndicator"
+                        className="absolute inset-0 bg-emerald-500 rounded-full shadow-sm shadow-emerald-500/50"
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 32,
+                        }}
+                      />
+                    )}
+                    <span
+                      className={`relative z-10 transition-colors duration-150 ${
+                        isActive
+                          ? "text-zinc-950 font-bold"
+                          : "text-zinc-400 hover:text-zinc-100"
+                      }`}
+                    >
+                      {link.label}
+                    </span>
+                  </a>
                 );
               })}
             </div>
 
-            {/* Actions: Command palette, GitHub, Admin, Mobile Toggle */}
+            {/* Actions: Status pill, Command palette, GitHub, Admin */}
             <div className="flex items-center gap-2.5">
               {/* Status Badge */}
               <div className="hidden xl:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-800/40 text-[11px] text-emerald-300">
@@ -112,7 +176,7 @@ export function Navbar({ projects, links }: NavbarProps) {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span>Disponible para nuevos desafíos</span>
+                <span>Disponible para proyectos</span>
               </div>
 
               {/* Command Palette Button */}
@@ -173,22 +237,28 @@ export function Navbar({ projects, links }: NavbarProps) {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span>Disponible para nuevos desafíos</span>
+                <span>Disponible para proyectos</span>
               </div>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    pathname === link.href
-                      ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
-                      : "text-zinc-300 hover:bg-zinc-900"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === "/" ? activeSection === link.id : false;
+                return (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    onClick={(e) => {
+                      handleNavClick(e, link);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+                        : "text-zinc-300 hover:bg-zinc-900"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <div className="pt-2 border-t border-zinc-800/80 flex items-center justify-between">
                 <Link
                   href="/admin"

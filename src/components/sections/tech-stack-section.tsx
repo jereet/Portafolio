@@ -30,10 +30,10 @@ export function TechStackSection() {
             <span className="text-zinc-600">03 //</span> Tecnologías & Herramientas
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Stack Tecnológico Seleccionado
+            Stack Tecnológico
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Evaluado por criterio cualitativo y aplicación en proyectos reales. Sin porcentajes arbitrarios: dominio técnico respaldado por conceptos de ciencias de la computación.
+            Lenguajes, frameworks, bases de datos y herramientas que utilizo para desarrollo web fullstack, administración de sistemas, redes e inteligencia artificial.
           </p>
         </div>
 
