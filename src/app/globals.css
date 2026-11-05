@@ -2,19 +2,19 @@
 
 @layer base {
   :root {
-    --background: #090a0f;
+    --background: #080a0d;
     --foreground: #f4f4f5;
-    --card: #111318;
+    --card: #101319;
     --card-foreground: #f4f4f5;
     --primary: #10b981;
-    --primary-foreground: #090a0f;
-    --secondary: #1f242d;
+    --primary-foreground: #080a0d;
+    --secondary: #181d26;
     --secondary-foreground: #f4f4f5;
-    --muted: #1e222a;
-    --muted-foreground: #a1a1aa;
+    --muted: #1a202c;
+    --muted-foreground: #94a3b8;
     --accent: #059669;
     --accent-foreground: #ffffff;
-    --border: #222733;
+    --border: #1f2735;
     --ring: #10b981;
   }
 }
@@ -36,41 +36,46 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #090a0f;
+  background: #080a0d;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f2937;
+  background: #1e2638;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #10b981;
 }
 
-/* Subtle tech grid background */
-.bg-grid-tech {
-  background-size: 36px 36px;
+/* Ambient organic background (No matrix squares) */
+.bg-ambient-ambient {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
-
-.bg-radial-glow {
-  background: radial-gradient(circle 500px at 50% 10%, rgba(16, 185, 129, 0.12), transparent 70%);
-}
-
-.bg-card-glass {
-  background: rgba(17, 20, 27, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(3, 70, 24, 0.25), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 40%, rgba(16, 185, 129, 0.08), transparent 60%),
+    radial-gradient(ellipse 50% 30% at 10% 80%, rgba(5, 150, 105, 0.07), transparent 50%);
 }
 
 .green-glow {
   box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25);
 }
 
-.green-border-glow:hover {
-  border-color: rgba(16, 185, 129, 0.6);
-  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.2);
+/* Infinite marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation-play-state: paused;
+  }
 }
 
 /* Code block font */

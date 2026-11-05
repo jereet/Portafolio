@@ -699,6 +699,25 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
                   />
                 </div>
 
+                <div className="space-y-1">
+                  <label className="font-mono text-zinc-300">Capturas de Pantalla (Rutas o URLs separadas por coma)</label>
+                  <input
+                    type="text"
+                    value={editingProject.images?.join(", ") || ""}
+                    onChange={(e) =>
+                      setEditingProject({
+                        ...editingProject,
+                        images: e.target.value.split(",").map((s) => s.trim()).filter(Boolean)
+                      })
+                    }
+                    placeholder="/projects/screenshot1.webp, /projects/screenshot2.webp"
+                    className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-100 focus:outline-none focus:border-emerald-500"
+                  />
+                  <p className="text-[10px] text-zinc-500 font-mono">
+                    Estas imágenes se mostrarán con dots interactivos en la cola circular de proyectos.
+                  </p>
+                </div>
+
                 <div className="flex items-center gap-2 pt-2">
                   <input
                     type="checkbox"

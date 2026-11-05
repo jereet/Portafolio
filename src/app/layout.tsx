@@ -70,7 +70,7 @@ export default async function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
     >
-      <body className="min-h-screen bg-[#090a0f] text-zinc-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 bg-grid-tech relative">
+      <body className="min-h-screen bg-[#080a0d] text-zinc-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 bg-ambient-ambient relative">
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"

@@ -14,7 +14,7 @@
       "githubUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
       "liveUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
       "role": "Desarrollador Web",
-      "timeline": "2024",
+      "timeline": "2026",
       "architecture": [
         "Estructura desacoplada para gestión de estados de los 7 minijuegos.",
         "Componentes reutilizables para el tablero, dados y tarjetas dinámicas.",
@@ -38,6 +38,11 @@
         "Tablero visual fluido con Tailwind CSS."
       ],
       "image": "/projects/mixrush.webp",
+      "images": [
+        "/projects/mixrush-tablero.webp",
+        "/projects/mixrush-minijuegos.webp",
+        "/projects/mixrush-podio.webp"
+      ],
       "order": 1
     },
     {
@@ -54,7 +59,7 @@
       "githubUrl": "https://github.com/jereet/Countries-Explorer",
       "liveUrl": "https://github.com/jereet/Countries-Explorer",
       "role": "Desarrollador Desktop & Multiplatform",
-      "timeline": "2024",
+      "timeline": "2026",
       "architecture": [
         "Patrón de arquitectura MVVM con separación estricta de UI y lógica.",
         "Cliente HTTP asincrónico implementado con Ktor y corrutinas.",
@@ -78,6 +83,11 @@
         "Almacenamiento de preferencias con DataStore."
       ],
       "image": "/projects/countries.webp",
+      "images": [
+        "/projects/countries-map.webp",
+        "/projects/countries-weather.webp",
+        "/projects/countries-compare.webp"
+      ],
       "order": 2
     },
     {
@@ -94,7 +104,7 @@
       "githubUrl": "https://github.com/jereet/QR_Party_50th",
       "liveUrl": "https://github.com/jereet/QR_Party_50th",
       "role": "Desarrollador Web",
-      "timeline": "2024",
+      "timeline": "2025",
       "architecture": [
         "Sitio web responsive ligero y accesible desde cualquier smartphone sin apps.",
         "Menú digital interactivo con buscador y filtros de tragos y bebidas.",
@@ -118,6 +128,11 @@
         "Secciones personalizadas y cronograma del evento."
       ],
       "image": "/projects/qrparty.webp",
+      "images": [
+        "/projects/qrparty-menu.webp",
+        "/projects/qrparty-gallery.webp",
+        "/projects/qrparty-qr.webp"
+      ],
       "order": 3
     },
     {
@@ -134,7 +149,7 @@
       "githubUrl": "https://github.com/jereet/BuscadorMongoDB",
       "liveUrl": "https://github.com/jereet/BuscadorMongoDB",
       "role": "Desarrollador Backend & Bases de Datos",
-      "timeline": "2024",
+      "timeline": "2026",
       "architecture": [
         "API REST desarrollada en Node.js y Express para consultas de películas.",
         "Modelado de esquemas y creación de índices de texto en MongoDB.",
@@ -158,6 +173,11 @@
         "Visualización limpia de sinopsis, puntuaciones y detalles."
       ],
       "image": "/projects/buscador-mongo.webp",
+      "images": [
+        "/projects/mongo-search.webp",
+        "/projects/mongo-facets.webp",
+        "/projects/mongo-api.webp"
+      ],
       "order": 4
     }
   ],

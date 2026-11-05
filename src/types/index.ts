@@ -27,6 +27,7 @@ export interface Project {
   challenges: ProjectChallenge[];
   features: string[];
   image: string;
+  images?: string[];
   stats?: ProjectStat[];
   order: number;
 }

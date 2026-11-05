@@ -1,107 +1,92 @@
-import { techCategories } from "@/data/tech-stack";
-import { Sparkles, Terminal, Code2, Database, Wrench, Bot, Layers } from "lucide-react";
+import { TechIcon } from "@/components/ui/tech-icons";
 
 export function TechStackSection() {
-  const getCategoryIcon = (index: number) => {
-    switch (index) {
-      case 0:
-        return Code2;
-      case 1:
-        return Layers;
-      case 2:
-        return Terminal;
-      case 3:
-        return Database;
-      case 4:
-        return Bot;
-      case 5:
-        return Wrench;
-      default:
-        return Sparkles;
-    }
-  };
+  const row1 = [
+    { name: "TypeScript" },
+    { name: "JavaScript" },
+    { name: "Kotlin" },
+    { name: "React" },
+    { name: "Next.js" },
+    { name: "Tailwind CSS" },
+    { name: "MySQL" },
+    { name: "PostgreSQL" },
+    { name: "Python" },
+    { name: "PHP" },
+    { name: "Java" },
+    { name: "C" },
+  ];
+
+  const row2 = [
+    { name: "MongoDB" },
+    { name: "HTML" },
+    { name: "Docker" },
+    { name: "Git" },
+    { name: "Prolog" },
+    { name: "TypeScript" },
+    { name: "JavaScript" },
+    { name: "Kotlin" },
+    { name: "React" },
+    { name: "Next.js" },
+    { name: "Tailwind CSS" },
+    { name: "MySQL" },
+  ];
+
+  const renderTechCard = (tech: { name: string }, key: string) => (
+    <li
+      key={key}
+      className="flex h-24 w-36 shrink-0 flex-col items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white transition duration-200 hover:border-[#034618] hover:shadow-[4px_4px_0_0_#034618] motion-safe:hover:-translate-x-0.5 motion-safe:hover:-translate-y-0.5 md:h-28 md:w-44 cursor-default shadow-sm"
+    >
+      <div className="flex h-8 w-24 items-center justify-center object-contain md:h-10">
+        <TechIcon name={tech.name} />
+      </div>
+      <span className="text-xs font-semibold text-slate-800 tracking-tight">
+        {tech.name}
+      </span>
+    </li>
+  );
 
   return (
-    <section id="stack" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="stack" className="py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 space-y-3">
+        <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider uppercase text-emerald-400">
-            <span className="text-zinc-600">03 //</span> Tecnologías & Herramientas
+            <span className="text-zinc-600">03 //</span> Tecnologías
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Stack Tecnológico
+            Habilidades Técnicas & Herramientas
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Lenguajes, frameworks, bases de datos y herramientas que utilizo para desarrollo web fullstack, administración de sistemas, redes e inteligencia artificial.
+            Lenguajes de programación, frameworks, bases de datos y herramientas que empleo en el desarrollo de software y sistemas.
           </p>
         </div>
+      </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {techCategories.map((category, catIdx) => {
-            const Icon = getCategoryIcon(catIdx);
-            return (
-              <div
-                key={category.title}
-                className="flex flex-col rounded-2xl border border-zinc-800/80 bg-zinc-950/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-950/10"
-              >
-                {/* Category Header */}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-emerald-400">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-zinc-100 text-base leading-tight">
-                      {category.title}
-                    </h3>
-                  </div>
-                </div>
-
-                <p className="text-xs text-zinc-500 mb-5 leading-relaxed">
-                  {category.description}
-                </p>
-
-                {/* Tech items */}
-                <div className="space-y-3 flex-1">
-                  {category.items.map((item) => (
-                    <div
-                      key={item.name}
-                      className={`p-3 rounded-xl border transition-all ${
-                        item.highlight
-                          ? "bg-zinc-900/90 border-emerald-500/30 text-zinc-200"
-                          : "bg-zinc-900/40 border-zinc-800/60 text-zinc-300"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-mono text-xs font-semibold text-white flex items-center gap-1.5">
-                          {item.name}
-                          {item.highlight && (
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                          )}
-                        </span>
-                        <span
-                          className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
-                            item.level === "Experto"
-                              ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                              : item.level === "Avanzado"
-                              ? "bg-teal-500/10 text-teal-300 border-teal-500/30"
-                              : "bg-zinc-800 text-zinc-400 border-zinc-700"
-                          }`}
-                        >
-                          {item.level}
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-zinc-400 leading-normal">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+      {/* Marquee Container with exact user specifications */}
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
+        {/* Row 1 - Forward */}
+        <div className="flex w-max motion-safe:animate-marquee hover:[animation-play-state:paused]">
+          <ul aria-hidden="false" className="flex shrink-0 gap-4 pr-4">
+            {row1.map((tech, idx) => renderTechCard(tech, `row1-a-${idx}`))}
+          </ul>
+          <ul aria-hidden="true" className="flex shrink-0 gap-4 pr-4">
+            {row1.map((tech, idx) => renderTechCard(tech, `row1-b-${idx}`))}
+          </ul>
         </div>
+
+        {/* Row 2 - Reverse */}
+        <div className="flex w-max motion-safe:animate-marquee hover:[animation-play-state:paused] [animation-direction:reverse]">
+          <ul aria-hidden="false" className="flex shrink-0 gap-4 pr-4">
+            {row2.map((tech, idx) => renderTechCard(tech, `row2-a-${idx}`))}
+          </ul>
+          <ul aria-hidden="true" className="flex shrink-0 gap-4 pr-4">
+            {row2.map((tech, idx) => renderTechCard(tech, `row2-b-${idx}`))}
+          </ul>
+        </div>
+
+        <p className="sr-only">
+          Tecnologías: TypeScript, JavaScript, Kotlin, React, Next.js, Tailwind CSS, MySQL, PostgreSQL, Python, PHP, Java, C, MongoDB, HTML, Docker, Git, Prolog.
+        </p>
       </div>
     </section>
   );
