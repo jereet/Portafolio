@@ -19,7 +19,7 @@ export function AboutSection() {
     {
       icon: GraduationCap,
       title: "Formación en Informática & Computación",
-      description: "Estudiante de último año de la Licenciatura en Ciencias de la Computación y Técnico en Informática. Comprensión sólida de lógica, estructuras de datos, sistemas operativos y redes.",
+      description: "Estudiante avanzado de la Licenciatura en Ciencias de la Computación y Técnico en Informática. Comprensión sólida de lógica, estructuras de datos, sistemas operativos y redes.",
       badge: "Educación"
     },
     {
@@ -66,7 +66,7 @@ export function AboutSection() {
             Perfil Profesional & Formación
           </h2>
           <p className="text-zinc-300 text-base sm:text-lg leading-relaxed font-light">
-            Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática con sólidos conocimientos en desarrollo web fullstack, bases de datos SQL y NoSQL, y herramientas de inteligencia artificial.
+            Estudiante avanzado de Licenciatura en Ciencias de la Computación y Técnico en Informática con sólidos conocimientos en desarrollo web fullstack, bases de datos SQL y NoSQL, y herramientas de inteligencia artificial.
           </p>
         </div>
 

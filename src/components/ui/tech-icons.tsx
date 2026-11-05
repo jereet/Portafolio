@@ -134,6 +134,13 @@ export function TechIcon({ name }: { name: string }) {
           <text x="64" y="78" fill="#FFF" fontSize="38" fontWeight="bold" textAnchor="middle" fontFamily="monospace">:-</text>
         </svg>
       );
+    case "clerk":
+      return (
+        <svg viewBox="0 0 128 128" className="h-8 w-8 md:h-9 md:w-9">
+          <circle cx="64" cy="64" r="52" fill="#6C47FF" />
+          <path d="M43 40h42v16H59v32h26v16H43V40z" fill="#FFF" />
+        </svg>
+      );
     default:
       return (
         <div className="h-8 w-8 md:h-9 md:w-9 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center font-mono font-bold text-xs text-emerald-400">

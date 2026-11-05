@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
-import { getAllProjects, getAllLinks } from "@/lib/projects-service";
+import { getAllLinks } from "@/lib/projects-service";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Jeremías",
   },
   description:
-    "Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática. Sólidos conocimientos en programación, desarrollo web fullstack, SQL, NoSQL y herramientas de IA.",
+    "Estudiante avanzado de Licenciatura en Ciencias de la Computación y Técnico en Informática. Sólidos conocimientos en programación, desarrollo web fullstack, SQL, NoSQL y herramientas de IA.",
   keywords: [
     "Full Stack Developer",
     "Ciencias de la Computación",
@@ -43,34 +44,36 @@ export const metadata: Metadata = {
     url: "https://jeremias-portfolio.vercel.app",
     title: "Jeremías — Fullstack & Ciencias de la Computación",
     description:
-      "Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática.",
+      "Estudiante avanzado de Licenciatura en Ciencias de la Computación y Técnico en Informática.",
     siteName: "Jeremías Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Jeremías — Fullstack & Ciencias de la Computación",
     description:
-      "Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática.",
+      "Estudiante avanzado de Licenciatura en Ciencias de la Computación y Técnico en Informática.",
   },
   icons: {
     icon: "/favicon.ico",
   },
 };
 
+export const instant = false;
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const projects = await getAllProjects();
   const links = await getAllLinks();
 
   return (
-    <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
-    >
-      <body className="min-h-screen bg-[#080a0d] text-zinc-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 bg-ambient-ambient relative">
+    <ClerkProvider>
+      <html
+        lang="es"
+        className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
+      >
+        <body className="min-h-screen bg-[#080a0d] text-zinc-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 bg-ambient-ambient relative">
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"
@@ -80,7 +83,7 @@ export default async function RootLayout({
         </a>
 
         {/* Global Navbar */}
-        <Navbar projects={projects} links={links} />
+        <Navbar />
 
         {/* Main Content Area */}
         <main id="main-content" className="flex-1">
@@ -89,7 +92,8 @@ export default async function RootLayout({
 
         {/* Global Footer */}
         <Footer links={links} />
-      </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

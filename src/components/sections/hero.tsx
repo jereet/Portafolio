@@ -49,7 +49,7 @@ export function Hero({ links }: HeroProps) {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="font-mono tracking-tight">Estudiante de último año de Ciencias de la Computación</span>
+              <span className="font-mono tracking-tight">Estudiante avanzado de Ciencias de la Computación</span>
             </div>
 
             {/* Title & Identity */}
@@ -181,7 +181,7 @@ export function Hero({ links }: HeroProps) {
                   </div>
                   <div>
                     <span className="text-zinc-400">carrera:</span>{" "}
-                    <span className="text-emerald-300">&quot;Licenciatura en Ciencias de la Computación (Último año)&quot;</span>,
+                    <span className="text-emerald-300">&quot;Licenciatura en Ciencias de la Computación&quot;</span>,
                   </div>
                   <div>
                     <span className="text-zinc-400">tituloPrevio:</span>{" "}

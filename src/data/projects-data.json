@@ -8,11 +8,21 @@
       "description": "Desarrollo de aplicación web interactiva con 7 minijuegos, gestión de turnos, jugadores y persistencia de partidas.",
       "longDescription": "Desarrollo de una aplicación web interactiva que digitaliza la dinámica de juegos de mesa grupales. Cuenta con 7 minijuegos integrados, sistema de control de turnos entre participantes, registro de jugadores y persistencia de partidas para retomar el juego en cualquier momento.",
       "category": "Real-time",
-      "tags": ["React", "TypeScript", "Vite", "Tailwind CSS"],
-      "technologies": ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      "tags": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
       "featured": true,
       "githubUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
-      "liveUrl": "https://github.com/jereet/MixRush-JuegoDeMesaDigital",
+      "liveUrl": "https://mixrush.vercel.app/",
       "role": "Desarrollador Web",
       "timeline": "2026",
       "architecture": [
@@ -39,9 +49,9 @@
       ],
       "image": "/projects/mixrush.webp",
       "images": [
-        "/projects/mixrush-tablero.webp",
-        "/projects/mixrush-minijuegos.webp",
-        "/projects/mixrush-podio.webp"
+        "/projects/mixrush/lobby.png",
+        "/projects/mixrush/tablero.png",
+        "/projects/mixrush/ejemplo.png"
       ],
       "order": 1
     },
@@ -53,8 +63,20 @@
       "description": "Aplicación de escritorio para consultar información de países, visualizar el clima de sus capitales y comparar estadísticas mediante APIs externas.",
       "longDescription": "Aplicación desarrollada en Kotlin y Compose Multiplatform para explorar información geográfica de países de todo el mundo. Permite consultar datos demográficos, visualizar en tiempo real el clima de las capitales y realizar comparaciones estadísticas entre naciones a través del consumo de APIs externas.",
       "category": "Frontend",
-      "tags": ["Kotlin", "Compose Multiplatform", "Ktor", "DataStore", "MVVM"],
-      "technologies": ["Kotlin", "Compose Multiplatform", "Ktor", "DataStore", "MVVM Architecture"],
+      "tags": [
+        "Kotlin",
+        "Compose Multiplatform",
+        "Ktor",
+        "DataStore",
+        "MVVM"
+      ],
+      "technologies": [
+        "Kotlin",
+        "Compose Multiplatform",
+        "Ktor",
+        "DataStore",
+        "MVVM Architecture"
+      ],
       "featured": true,
       "githubUrl": "https://github.com/jereet/Countries-Explorer",
       "liveUrl": "https://github.com/jereet/Countries-Explorer",
@@ -84,9 +106,9 @@
       ],
       "image": "/projects/countries.webp",
       "images": [
-        "/projects/countries-map.webp",
-        "/projects/countries-weather.webp",
-        "/projects/countries-compare.webp"
+        "/projects/countries/lobby.png",
+        "/projects/countries/search.png",
+        "/projects/countries/details_1.png"
       ],
       "order": 2
     },
@@ -98,11 +120,20 @@
       "description": "Desarrollo de sitio web responsive accesible mediante código QR, con menú interactivo de tragos, galería de recuerdos y secciones personalizadas para eventos.",
       "longDescription": "Sitio web interactivo diseñado para celebraciones y eventos. Los asistentes acceden escaneando un código QR desde sus mesas para interactuar con un menú interactivo de tragos, subir fotos a la galería de recuerdos colectiva y explorar las secciones personalizadas del festejo.",
       "category": "Full Stack",
-      "tags": ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-      "technologies": ["HTML5", "CSS3", "JavaScript"],
+      "tags": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Responsive Design"
+      ],
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript"
+      ],
       "featured": true,
       "githubUrl": "https://github.com/jereet/QR_Party_50th",
-      "liveUrl": "https://github.com/jereet/QR_Party_50th",
+      "liveUrl": "https://fiestavane50.vercel.app/index.html",
       "role": "Desarrollador Web",
       "timeline": "2025",
       "architecture": [
@@ -129,9 +160,7 @@
       ],
       "image": "/projects/qrparty.webp",
       "images": [
-        "/projects/qrparty-menu.webp",
-        "/projects/qrparty-gallery.webp",
-        "/projects/qrparty-qr.webp"
+        "/projects/50th/lobby.png"
       ],
       "order": 3
     },
@@ -143,8 +172,21 @@
       "description": "Desarrollo de aplicación web de búsqueda de películas, con consultas optimizadas, ordenamiento por relevancia y visualización de resultados mediante una API REST.",
       "longDescription": "Aplicación web orientada a la búsqueda y exploración de catálogos cinematográficos en MongoDB. Implementa índices de texto, consultas optimizadas, ordenamiento por relevancia y una API REST que entrega los resultados listos para su visualización en una interfaz dinámica.",
       "category": "Backend",
-      "tags": ["Node.js", "Express", "MongoDB", "JavaScript", "HTML/CSS"],
-      "technologies": ["Node.js", "Express", "MongoDB", "JavaScript", "HTML5", "CSS3"],
+      "tags": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JavaScript",
+        "HTML/CSS"
+      ],
+      "technologies": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JavaScript",
+        "HTML5",
+        "CSS3"
+      ],
       "featured": true,
       "githubUrl": "https://github.com/jereet/BuscadorMongoDB",
       "liveUrl": "https://github.com/jereet/BuscadorMongoDB",
@@ -174,9 +216,7 @@
       ],
       "image": "/projects/buscador-mongo.webp",
       "images": [
-        "/projects/mongo-search.webp",
-        "/projects/mongo-facets.webp",
-        "/projects/mongo-api.webp"
+        "/projects/buscador/buscador_2.png"
       ],
       "order": 4
     }

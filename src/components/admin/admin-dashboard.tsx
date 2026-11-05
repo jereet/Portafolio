@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useClerk } from "@clerk/nextjs";
 import { 
   Project, 
   SocialLink, 
@@ -11,12 +12,9 @@ import {
   adminSaveProject, 
   adminDeleteProject, 
   adminSaveLink, 
-  adminDeleteLink, 
-  verifyAdminPassword 
+  adminDeleteLink
 } from "@/app/admin/actions";
 import { 
-  Lock, 
-  Key, 
   Plus, 
   Trash2, 
   Edit3, 
@@ -39,16 +37,12 @@ interface AdminDashboardProps {
 }
 
 export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboardProps) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [secretKey, setSecretKey] = useState("");
-  const [passwordInput, setPasswordInput] = useState("");
-  const [authError, setAuthError] = useState("");
-
   const [activeTab, setActiveTab] = useState<"projects" | "links" | "docs">("projects");
   const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [links, setLinks] = useState<SocialLink[]>(initialLinks);
 
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
+  const { signOut } = useClerk();
 
   // Editing Project Modal State
   const [editingProject, setEditingProject] = useState<Partial<Project> | null>(null);
@@ -57,35 +51,6 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
   // Editing Link Modal State
   const [editingLink, setEditingLink] = useState<Partial<SocialLink> | null>(null);
   const [isLinkModalOpen, setIsLinkModalOpen] = useState(false);
-
-  // Check stored auth in sessionStorage
-  useEffect(() => {
-    const stored = sessionStorage.getItem("portfolio_admin_key");
-    if (stored) {
-      setSecretKey(stored);
-      setIsAuthenticated(true);
-    }
-  }, []);
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setAuthError("");
-    const res = await verifyAdminPassword(passwordInput);
-    if (res.success) {
-      setIsAuthenticated(true);
-      setSecretKey(passwordInput);
-      sessionStorage.setItem("portfolio_admin_key", passwordInput);
-    } else {
-      setAuthError(res.error || "Clave inválida");
-    }
-  };
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("portfolio_admin_key");
-    setIsAuthenticated(false);
-    setSecretKey("");
-    setPasswordInput("");
-  };
 
   const showToast = (text: string, type: "success" | "error") => {
     setMessage({ text, type });
@@ -139,7 +104,7 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
     e.preventDefault();
     if (!editingProject || !editingProject.title) return;
 
-    const res = await adminSaveProject(editingProject as any, secretKey);
+    const res = await adminSaveProject(editingProject as any);
     if (res.success && res.project) {
       setProjects((prev) => {
         const idx = prev.findIndex((p) => p.id === res.project!.id);
@@ -162,7 +127,7 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
     if (!confirm(`¿Estás seguro de que deseas eliminar el proyecto "${title}"?`)) {
       return;
     }
-    const res = await adminDeleteProject(id, secretKey);
+    const res = await adminDeleteProject(id);
     if (res.success) {
       setProjects((prev) => prev.filter((p) => p.id !== id));
       showToast("Proyecto eliminado.", "success");
@@ -187,7 +152,7 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
     e.preventDefault();
     if (!editingLink || !editingLink.name || !editingLink.url) return;
 
-    const res = await adminSaveLink(editingLink as any, secretKey);
+    const res = await adminSaveLink(editingLink as any);
     if (res.success && res.link) {
       setLinks((prev) => {
         const idx = prev.findIndex((l) => l.id === res.link!.id);
@@ -208,7 +173,7 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
   // Delete Link
   const handleDeleteLink = async (id: string, name: string) => {
     if (!confirm(`¿Eliminar enlace "${name}"?`)) return;
-    const res = await adminDeleteLink(id, secretKey);
+    const res = await adminDeleteLink(id);
     if (res.success) {
       setLinks((prev) => prev.filter((l) => l.id !== id));
       showToast("Enlace eliminado.", "success");
@@ -216,64 +181,6 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
       showToast(res.error || "Error al eliminar enlace.", "error");
     }
   };
-
-  // If not authenticated, show modern terminal login
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen pt-36 pb-24 flex items-center justify-center px-4">
-        <div className="w-full max-w-md rounded-2xl border border-zinc-800/80 bg-zinc-950/80 p-8 shadow-2xl backdrop-blur-xl space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <Lock className="h-5 w-5" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-white">Panel Administrador</h1>
-              <p className="text-xs text-zinc-400 font-mono">Gestión de Proyectos & Enlaces</p>
-            </div>
-          </div>
-
-          {authError && (
-            <div className="p-3 rounded-xl bg-red-950/40 border border-red-500/40 text-red-300 text-xs flex items-center gap-2">
-              <AlertCircle className="h-4 w-4 shrink-0" />
-              <span>{authError}</span>
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-xs font-mono text-zinc-300 flex items-center justify-between">
-                <span>Clave de Acceso</span>
-                <span className="text-[11px] text-zinc-500">Default: admin123</span>
-              </label>
-              <div className="relative">
-                <Key className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
-                <input
-                  type="password"
-                  required
-                  autoFocus
-                  value={passwordInput}
-                  onChange={(e) => setPasswordInput(e.target.value)}
-                  placeholder="Introduce la contraseña de admin"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-sm transition-all shadow-lg shadow-emerald-500/20"
-            >
-              Ingresar al Dashboard
-            </button>
-          </form>
-
-          <p className="text-[11px] text-zinc-500 text-center font-mono">
-            Configurable mediante la variable <code className="text-emerald-400">ADMIN_SECRET_KEY</code> en <code>.env.local</code>
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen pt-28 pb-24">
@@ -299,7 +206,7 @@ export function AdminDashboard({ initialProjects, initialLinks }: AdminDashboard
 
           <div className="flex items-center gap-2">
             <button
-              onClick={handleLogout}
+              onClick={() => signOut()}
               className="px-3.5 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs text-zinc-400 hover:text-zinc-200 transition-colors flex items-center gap-1.5"
             >
               <LogOut className="h-3.5 w-3.5" />

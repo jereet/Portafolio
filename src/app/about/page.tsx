@@ -49,7 +49,7 @@ export default function AboutPage() {
             {/* Resumen principal */}
             <div className="p-6 sm:p-7 rounded-2xl bg-zinc-900/50 border border-zinc-800 space-y-3">
               <p className="text-zinc-200">
-                Estudiante de último año de <strong>Licenciatura en Ciencias de la Computación</strong> y <strong>Técnico en Informática</strong>. Sólidos conocimientos en programación, desarrollo web fullstack y bases de datos relacionales SQL y NoSQL.
+                Estudiante avanzado de <strong>Licenciatura en Ciencias de la Computación</strong> y <strong>Técnico en Informática</strong>. Sólidos conocimientos en programación, desarrollo web fullstack y bases de datos relacionales SQL y NoSQL.
               </p>
               <p className="text-zinc-300">
                 Cuento con un gran manejo de herramientas de inteligencia artificial, un buen manejo de redes y sistemas operativos y buena comunicación para el trabajo en equipo.

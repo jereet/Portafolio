@@ -1,33 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { 
   Terminal, 
-  Command, 
   Menu, 
   X, 
   Lock, 
   ArrowUpRight 
 } from "lucide-react";
-import { CommandPalette } from "./command-palette";
-import { Project, SocialLink } from "@/types";
 import { GithubIcon } from "@/components/ui/icons";
 
-interface NavbarProps {
-  projects: Project[];
-  links: SocialLink[];
-}
-
-export function Navbar({ projects, links }: NavbarProps) {
+export function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
-  const [isCommandOpen, setIsCommandOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("hero");
+  const navigationTargetRef = useRef<number | null>(null);
 
   // Track scroll position for navbar background
   useEffect(() => {
@@ -47,6 +38,14 @@ export function Navbar({ projects, links }: NavbarProps) {
     const sections = ["hero", "projects", "about", "stack", "experience", "contact"];
 
     const handleScrollSpy = () => {
+      const navigationTarget = navigationTargetRef.current;
+      if (navigationTarget !== null) {
+        if (Math.abs(window.scrollY - navigationTarget) > 8) {
+          return;
+        }
+        navigationTargetRef.current = null;
+      }
+
       const scrollPosition = window.scrollY + 200; // offset for detection
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -68,18 +67,6 @@ export function Navbar({ projects, links }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScrollSpy);
   }, [pathname]);
 
-  // Global Ctrl+K / Cmd+K handler
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        setIsCommandOpen((prev) => !prev);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
   const navLinks = [
     { id: "hero", label: "Inicio", href: "/#hero" },
     { id: "projects", label: "Proyectos", href: "/#projects" },
@@ -96,11 +83,30 @@ export function Navbar({ projects, links }: NavbarProps) {
       if (el) {
         const yOffset = -80;
         const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        navigationTargetRef.current = y;
         window.scrollTo({ top: y, behavior: "smooth" });
         setActiveSection(item.id);
       }
     }
   };
+
+  if (pathname.startsWith("/admin")) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-40 border-b border-zinc-800/80 bg-zinc-950/85 py-4 shadow-lg shadow-black/50 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="group inline-flex items-center gap-2.5 font-mono text-sm tracking-tight text-zinc-100 transition-colors hover:text-emerald-400"
+          >
+            <Terminal className="h-4 w-4 text-emerald-400 transition-transform group-hover:rotate-6" />
+            <span className="font-bold">
+              JEREMÍAS <span className="text-emerald-400">TORANZO</span>
+            </span>
+          </Link>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <>
@@ -169,7 +175,7 @@ export function Navbar({ projects, links }: NavbarProps) {
               })}
             </div>
 
-            {/* Actions: Status pill, Command palette, GitHub, Admin */}
+            {/* Actions: Status pill, GitHub, Admin */}
             <div className="flex items-center gap-2.5">
               {/* Status Badge */}
               <div className="hidden xl:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-800/40 text-[11px] text-emerald-300">
@@ -179,19 +185,6 @@ export function Navbar({ projects, links }: NavbarProps) {
                 </span>
                 <span>Disponible para proyectos</span>
               </div>
-
-              {/* Command Palette Button */}
-              <button
-                onClick={() => setIsCommandOpen(true)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-all group"
-                title="Abrir Command Palette (Ctrl+K)"
-              >
-                <Command className="h-3.5 w-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-                <span className="hidden sm:inline">Buscar</span>
-                <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded bg-zinc-950 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400 border border-zinc-800">
-                  ⌘K
-                </kbd>
-              </button>
 
               {/* GitHub Link */}
               <a
@@ -284,13 +277,6 @@ export function Navbar({ projects, links }: NavbarProps) {
         )}
       </header>
 
-      {/* Global Command Palette */}
-      <CommandPalette
-        isOpen={isCommandOpen}
-        onClose={() => setIsCommandOpen(false)}
-        projects={projects}
-        links={links}
-      />
     </>
   );
 }

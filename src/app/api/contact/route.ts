@@ -25,8 +25,6 @@ export async function POST(request: Request) {
 
     const { name, email, subject, message } = result.data;
 
-    // Optional: If RESEND_API_KEY is configured in env, send real email.
-    // Otherwise, simulate a successful receipt and log it cleanly.
     console.log(`[Contact Form Received] From: ${name} <${email}> | Subject: ${subject}`);
     console.log(`Message: ${message}`);
 

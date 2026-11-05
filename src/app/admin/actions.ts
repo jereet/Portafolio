@@ -6,26 +6,12 @@ import {
   deleteProject, 
   saveLink, 
   deleteLink, 
-  getAllProjects, 
-  getAllLinks 
 } from "@/lib/projects-service";
 import { Project, SocialLink } from "@/types";
+import { isAdmin } from "@/lib/admin-auth";
 
-const ADMIN_SECRET = process.env.ADMIN_SECRET_KEY || "admin123";
-
-function checkAuth(secret: string): boolean {
-  return secret === ADMIN_SECRET;
-}
-
-export async function verifyAdminPassword(secret: string) {
-  if (checkAuth(secret)) {
-    return { success: true };
-  }
-  return { success: false, error: "Contraseña incorrecta. Por favor intenta de nuevo." };
-}
-
-export async function adminSaveProject(projectData: Omit<Project, "id"> & { id?: string }, secret: string) {
-  if (!checkAuth(secret)) {
+export async function adminSaveProject(projectData: Omit<Project, "id"> & { id?: string }) {
+  if (!(await isAdmin())) {
     return { success: false, error: "No autorizado. Clave de admin inválida." };
   }
 
@@ -41,8 +27,8 @@ export async function adminSaveProject(projectData: Omit<Project, "id"> & { id?:
   }
 }
 
-export async function adminDeleteProject(id: string, secret: string) {
-  if (!checkAuth(secret)) {
+export async function adminDeleteProject(id: string) {
+  if (!(await isAdmin())) {
     return { success: false, error: "No autorizado." };
   }
 
@@ -57,8 +43,8 @@ export async function adminDeleteProject(id: string, secret: string) {
   }
 }
 
-export async function adminSaveLink(linkData: Omit<SocialLink, "id"> & { id?: string }, secret: string) {
-  if (!checkAuth(secret)) {
+export async function adminSaveLink(linkData: Omit<SocialLink, "id"> & { id?: string }) {
+  if (!(await isAdmin())) {
     return { success: false, error: "No autorizado." };
   }
 
@@ -74,8 +60,8 @@ export async function adminSaveLink(linkData: Omit<SocialLink, "id"> & { id?: st
   }
 }
 
-export async function adminDeleteLink(id: string, secret: string) {
-  if (!checkAuth(secret)) {
+export async function adminDeleteLink(id: string) {
+  if (!(await isAdmin())) {
     return { success: false, error: "No autorizado." };
   }
 

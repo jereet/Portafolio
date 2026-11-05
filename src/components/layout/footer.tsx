@@ -31,7 +31,7 @@ export function Footer({ links }: FooterProps) {
               <span className="text-zinc-500 text-xs">/ Fullstack & Informática</span>
             </div>
             <p className="text-sm text-zinc-400 max-w-md leading-relaxed">
-              Estudiante de último año de Licenciatura en Ciencias de la Computación y Técnico en Informática. Desarrollo web fullstack, bases de datos SQL y NoSQL y herramientas de IA.
+              Estudiante avanzado de Licenciatura en Ciencias de la Computación y Técnico en Informática. Desarrollo web fullstack, bases de datos SQL y NoSQL y herramientas de IA.
             </p>
             <div className="flex items-center gap-2 text-xs text-zinc-500 font-mono">
               <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />

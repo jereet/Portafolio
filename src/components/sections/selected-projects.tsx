@@ -1,27 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { CircularProjectsCarousel } from "@/components/projects/circular-projects-carousel";
-import { ProjectCard } from "@/components/projects/project-card";
 import { Project } from "@/types";
-import { ArrowRight, Sparkles, LayoutGrid, Disc } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 interface SelectedProjectsProps {
   projects: Project[];
 }
 
 export function SelectedProjects({ projects }: SelectedProjectsProps) {
-  const [viewMode, setViewMode] = useState<"carousel" | "grid">("carousel");
-  const [activeCategory, setActiveCategory] = useState<string>("Todos");
-
-  const categories = ["Todos", "Real-time", "Frontend", "Full Stack", "Backend"];
-
-  const filteredProjects =
-    activeCategory === "Todos"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
-
   return (
     <section id="projects" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,67 +27,9 @@ export function SelectedProjects({ projects }: SelectedProjectsProps) {
             </p>
           </div>
 
-          {/* Controls: View Switcher & Category Filter */}
-          <div className="flex flex-wrap items-center gap-2">
-            {/* View Mode Toggle */}
-            <div className="flex items-center bg-zinc-900/90 p-1 rounded-xl border border-zinc-800">
-              <button
-                onClick={() => setViewMode("carousel")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  viewMode === "carousel"
-                    ? "bg-emerald-500 text-zinc-950 font-bold shadow-sm"
-                    : "text-zinc-400 hover:text-white"
-                }`}
-                title="Vista en Cola Circular"
-              >
-                <Disc className="h-3.5 w-3.5" />
-                <span>Carrusel</span>
-              </button>
-              <button
-                onClick={() => setViewMode("grid")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  viewMode === "grid"
-                    ? "bg-emerald-500 text-zinc-950 font-bold shadow-sm"
-                    : "text-zinc-400 hover:text-white"
-                }`}
-                title="Vista en Grilla"
-              >
-                <LayoutGrid className="h-3.5 w-3.5" />
-                <span>Grilla</span>
-              </button>
-            </div>
-
-            {/* Category Filter Pills (when in grid mode) */}
-            {viewMode === "grid" && (
-              <div className="flex flex-wrap items-center gap-1 p-1 bg-zinc-900/80 rounded-xl border border-zinc-800">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                      activeCategory === cat
-                        ? "bg-emerald-500 text-zinc-950 font-semibold"
-                        : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
         </div>
 
-        {/* Carousel or Grid View */}
-        {viewMode === "carousel" ? (
-          <CircularProjectsCarousel projects={projects} />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pt-4">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        )}
+        <CircularProjectsCarousel projects={projects} />
 
         {/* Bottom Banner */}
         <div className="mt-14 p-6 sm:p-8 rounded-2xl border border-zinc-800/80 bg-zinc-950/60 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-md">
