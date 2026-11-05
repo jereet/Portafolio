@@ -1,69 +1,139 @@
-# Jeremías — Full Stack Software Engineer Portfolio
+# Jeremías Toranzo — Portfolio
 
-Portafolio profesional desarrollado como una aplicación de producto de alto rendimiento, con identidad visual **dark minimalist**, acentos tecnológicos en verde esmeralda y una arquitectura escalable.
+Portafolio personal desarrollado con Next.js, orientado a mostrar proyectos,
+experiencia, tecnologías y canales de contacto en una interfaz dark minimalista.
 
----
+## Características
 
-## 🛠️ Stack Tecnológico
+- Landing page responsive con secciones de presentación, proyectos, tecnologías,
+  experiencia y contacto.
+- Carrusel interactivo de proyectos con:
+  - Arrastre táctil y con mouse.
+  - Navegación por teclado y flechas.
+  - Capturas configurables desde el panel de administración.
+  - Dots y flechas para cambiar entre imágenes.
+- Carrusel automático de tecnologías con pausa al interactuar.
+- Páginas individuales para cada proyecto.
+- SEO básico con metadata, Open Graph, sitemap y robots.
+- Formulario de contacto validado con Zod.
+- Panel de administración protegido con Clerk.
 
-| Capa | Tecnologías | Propósito |
-|---|---|---|
-| **Framework** | Next.js 16 (App Router) + React 19 + TypeScript | Renderizado híbrido (SSG, ISR, Server Actions), tipado estricto. |
-| **Estilos & UI** | Tailwind CSS v4 + Design System Propio | Glassmorphism, microinteracciones, paleta dark y acentos neón sutiles. |
-| **Animaciones** | Framer Motion | Entradas fluidas, transiciones de tarjetas y modales. |
-| **Buscador & Atajos** | Command Palette (`Ctrl + K` / `⌘ + K`) | Navegación instantánea entre proyectos, secciones y redes. |
-| **Persistencia** | JSON Atómico + Prisma Schema (PostgreSQL ready) | Almacenamiento ágil out-of-the-box con soporte listo para Supabase/Neon. |
-| **Validación** | Zod | Validación de esquemas en API de contacto y formularios. |
-| **SEO & Accesibilidad**| Metadata API, OpenGraph, Sitemap, Robots, WCAG AA | Indexación optimizada y navegación por teclado. |
+## Stack tecnológico
 
----
+| Área | Tecnología |
+|---|---|
+| Framework | Next.js 16, App Router |
+| Lenguaje | TypeScript |
+| UI | React 19, Tailwind CSS 4 |
+| Animaciones | Framer Motion |
+| Iconos | Lucide React y SVG personalizados |
+| Autenticación | Clerk |
+| Validación | Zod |
+| Persistencia actual | `src/data/projects-data.json` |
+| Preparación de base de datos | Prisma y PostgreSQL |
+| Package manager | pnpm |
 
-## 🚀 Proyectos Iniciales Destacados
+## Proyectos
 
-1. **[MixRush — Juego de Mesa Digital](https://github.com/jereet/MixRush-JuegoDeMesaDigital)**  
-   *Categoría: Real-time & Game Mechanics*  
-   Plataforma multijugador con sincronización de estado en tiempo real, gestión determinista de turnos y feedback audiovisual adaptado a múltiples dispositivos.
+- [MixRush — Juego de Mesa Digital](https://github.com/jereet/MixRush-JuegoDeMesaDigital)
+- [Countries Explorer](https://github.com/jereet/Countries-Explorer)
+- [QR Party 50th](https://github.com/jereet/QR_Party_50th)
+- [Buscador MongoDB](https://github.com/jereet/BuscadorMongoDB)
 
-2. **[Countries Explorer](https://github.com/jereet/Countries-Explorer)**  
-   *Categoría: Frontend Engineering & Data Visualization*  
-   Explorador geo-demográfico de más de 250 territorios con búsqueda instantánea debounced, cálculo de fronteras en memoria $O(1)$ y 99/100 en Lighthouse.
+Los proyectos, enlaces y capturas se administran desde
+[`src/data/projects-data.json`](./src/data/projects-data.json). Las imágenes
+locales se encuentran en [`public/projects/`](./public/projects/).
 
-3. **[QR Party 50th](https://github.com/jereet/QR_Party_50th)**  
-   *Categoría: Full Stack & Event Tech*  
-   Sistema interactivo para celebraciones con generación de credenciales QR dinámicas, compresión de imágenes en el cliente (reducción del 95%) y streaming en pantalla gigante.
+## Panel de administración
 
-4. **[Buscador MongoDB](https://github.com/jereet/BuscadorMongoDB)**  
-   *Categoría: Backend Engineering & Databases*  
-   Motor de consultas avanzadas sobre MongoDB Atlas optimizado con text indexing ponderado, pipelines de agregación `$facet` en un único round-trip y telemetría de latencia.
+El panel está disponible en `/admin` y utiliza Clerk para la autenticación.
 
----
+### Acceso
 
-## 🔐 Panel de Administración (`/admin`)
+1. Iniciar sesión mediante `/sign-in`.
+2. Clerk valida la sesión antes de permitir el acceso a `/admin`.
+3. El servidor compara el usuario autenticado con `CLERK_ADMIN_USER_ID`.
 
-El portafolio incluye un panel de gestión protegido para agregar, modificar o eliminar proyectos y enlaces sin tocar código:
+La autorización se valida tanto en el proxy como dentro de las Server Actions,
+por lo que ocultar la interfaz no es la única medida de protección.
 
-- **Ruta:** `/admin`
-- **Clave de Acceso por defecto:** `admin123` *(configurable en `.env.local` con `ADMIN_SECRET_KEY`)*
-- **Funcionalidades:**
-  - Crear y editar proyectos con slugs automáticos, tags, métricas y desafíos resueltos.
-  - Gestionar enlaces sociales (LinkedIn, GitHub, Email, CV, Twitter, etc.).
-  - Revalidación automática de rutas estáticas vía Server Actions.
-  - Soporte de base de datos PostgreSQL con Prisma cuando se defina `DATABASE_URL`.
+Desde el panel se pueden:
 
----
+- Crear, editar y eliminar proyectos.
+- Modificar títulos, descripciones, tecnologías, tags y enlaces.
+- Configurar una o varias capturas por proyecto.
+- Gestionar enlaces sociales.
+- Revalidar las páginas afectadas después de guardar cambios.
 
-## 💻 Desarrollo Local
+## Configuración local
+
+### Requisitos
+
+- Node.js compatible con Next.js 16.
+- pnpm 12 o superior.
+- Una aplicación configurada en Clerk para acceder al panel.
+
+### Instalación
 
 ```bash
-# 1. Instalar dependencias
 pnpm install
-
-# 2. Configurar variables de entorno
-cp .env.example .env.local
-
-# 3. Iniciar servidor de desarrollo
 pnpm dev
+```
 
-# 4. Compilar para producción
+La aplicación estará disponible en <http://localhost:3000>.
+
+### Variables de entorno
+
+Crear `.env.local` en la raíz del proyecto:
+
+```env
+DATABASE_URL="postgresql://usuario:contraseña@localhost:5432/portfolio?schema=public"
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_..."
+CLERK_SECRET_KEY="sk_test_..."
+CLERK_ADMIN_USER_ID="user_..."
+```
+
+`CLERK_ADMIN_USER_ID` debe contener el ID del único usuario autorizado a
+modificar el portfolio. Las claves reales nunca deben commitearse.
+
+## Scripts
+
+```bash
+pnpm dev       # Servidor de desarrollo
+pnpm lint      # ESLint
+pnpm build     # Build de producción
+pnpm start     # Servidor de producción
+```
+
+## Estructura principal
+
+```text
+src/
+├── app/
+│   ├── admin/              # Página y Server Actions protegidas
+│   ├── api/contact/        # API del formulario de contacto
+│   ├── projects/           # Catálogo y detalle de proyectos
+│   └── sign-in/            # Página de inicio de sesión de Clerk
+├── components/
+│   ├── admin/              # Dashboard de administración
+│   ├── layout/             # Navbar y footer
+│   ├── projects/           # Carrusel y tarjetas
+│   └── sections/           # Secciones de la página principal
+├── data/                   # Datos editables del portfolio
+├── lib/                    # Servicios y autorización
+└── proxy.ts                # Protección de rutas con Clerk
+public/
+└── projects/               # Capturas de proyectos
+```
+
+## Producción
+
+En Vercel o el proveedor elegido, configurar las mismas variables de Clerk y
+`CLERK_ADMIN_USER_ID` usadas localmente. Después ejecutar el build:
+
+```bash
 pnpm build
+pnpm start
 ```
