@@ -1,6 +1,6 @@
 allowBuilds:
-  esbuild: set this to true or false
-  opencode-ai: set this to true or false
+  esbuild: true
+  opencode-ai: true
   sharp: false
   unrs-resolver: false
-  workerd: set this to true or false
+  workerd: true
