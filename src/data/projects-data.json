@@ -162,13 +162,13 @@
       "images": [
         "/projects/50th/lobby.png"
       ],
-      "order": 3
+      "order": 4
     },
     {
       "id": "proj-4",
       "slug": "buscador-mongodb",
-      "title": "MongoDB Movie Search",
-      "subtitle": "Buscador de películas",
+      "title": "CineFind",
+      "subtitle": "Buscador de películas MongoDB",
       "description": "Desarrollo de aplicación web de búsqueda de películas, con consultas optimizadas, ordenamiento por relevancia y visualización de resultados mediante una API REST.",
       "longDescription": "Aplicación web orientada a la búsqueda y exploración de catálogos cinematográficos en MongoDB. Implementa índices de texto, consultas optimizadas, ordenamiento por relevancia y una API REST que entrega los resultados listos para su visualización en una interfaz dinámica.",
       "category": "Backend",
@@ -188,8 +188,8 @@
         "CSS3"
       ],
       "featured": true,
-      "githubUrl": "https://github.com/jereet/BuscadorMongoDB",
-      "liveUrl": "https://github.com/jereet/BuscadorMongoDB",
+      "githubUrl": "https://github.com/jereet/CineFind",
+      "liveUrl": "https://cine-find-mongodb.vercel.app/",
       "role": "Desarrollador Backend & Bases de Datos",
       "timeline": "2026",
       "architecture": [
@@ -218,7 +218,7 @@
       "images": [
         "/projects/buscador/buscador_2.png"
       ],
-      "order": 4
+      "order": 3
     }
   ],
   "links": [
